@@ -58,5 +58,5 @@ jobs:
         with:
           app-name: 'lanceio'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6E84BBFA85924A45A792ABE5AB044B6C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0CB06A1645EA4D12A2BCE804F073317A }}
           package: .
