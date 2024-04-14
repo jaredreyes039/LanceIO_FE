@@ -31,18 +31,15 @@ function quicksort(arr) {
 // @params coords [[x,y]...[x_n,y_n]]
 function collapseCoords(coords) {
 	collBounds = coords.length
-	console.log(coords)
 	if (collI <= collBounds - 2) {
 		let similarCoords = coords.filter((set) => {
 			return set[0] === coords[collI][0]
 		})
-		console.log(similarCoords)
 		for (let k = 1; k < similarCoords.length; k++) {
 			coords[collI][collJ + 1] += similarCoords[k][collJ + 1]
 			coords.splice(coords.indexOf(similarCoords[k]), 1)
 		}
 		collI++
-		console.log(coords)
 		collapseCoords(coords)
 	}
 	return coords
@@ -108,7 +105,7 @@ export default function LinePlot() {
 		return (
 			<Line
 				width={((0.66 * 1440) - 128).toString() + 'px'}
-				height={'240px'}
+				height={'420px'}
 				key={Math.random()}
 				ref={lineRef}
 				datasetIdKey={1}

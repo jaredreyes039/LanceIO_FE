@@ -43,7 +43,6 @@ function constructIncomeData(orderData, currency) {
 	let owedSum;
 	if (allPaymentDates.length > 0) {
 		allPaymentDates.sort((a, b) => { return a.date < b.date })
-		console.log(allPaymentDates)
 	}
 	if (allPaymentsArr.length > 0) {
 		paymentSum = allPaymentsArr.reduce((a, b) => {
@@ -129,7 +128,7 @@ export default function IncomeFlowCard(props) {
 		<div ref={carouselRef} className="carousel">
 			{currencies.map((curr, idx) => {
 				return (
-					<div id={"s-" + (idx + 1)} className="slide slide-active">
+					<div key={"s-" + idx} id={"s-" + (idx + 1)} className="slide slide-active">
 						<div className="flex flex-col">
 							<div className="flex flex-row flow-header">
 								<h1>{currencyStringToSymbol(curr)}</h1>

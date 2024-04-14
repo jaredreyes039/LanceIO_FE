@@ -22,7 +22,7 @@ export default function ToolBar(props) {
     const handleLogout = async (e) => {
         e.preventDefault();
 
-        const response = await fetch("http://localhost:5000/auth/logout", {
+        const response = await fetch(process.env.REACT_APP_API_URL_AUTH + "/logout", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

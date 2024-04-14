@@ -18,7 +18,6 @@ export default function UpcomingDelivery(props) {
         let filteredDeliveries = orderDataCopy.filter(
             (order) => {
                 let daysDiff = Math.round((new Date(order.deliveryDate) - Date.now()) / (1000 * 60 * 60 * 24))
-                console.log(daysDiff)
                 if (daysDiff <= 14 && daysDiff > 0) {
                     return order
                 }

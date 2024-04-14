@@ -83,7 +83,7 @@ export default function Home(props) {
                                         <div className="mid-dash-row flex justify-evenly flex-1">
                                                 <CardItemBlack
                                                         width="66%"
-                                                        height="540px"
+                                                        height='fit-content'
                                                         icon="./icons/IncomeIcon.svg"
                                                         title="Your Outlook"
                                                 >
