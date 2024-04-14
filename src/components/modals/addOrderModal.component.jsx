@@ -94,7 +94,7 @@ export default function AddOrderModal(props) {
     const handleSubmitOrderForm = async (e) => {
         e.preventDefault()
         try {
-            let res = await fetch('http://localhost:5001/api/orders/create', {
+            let res = await fetch(process.env.REACT_APP_API_URL_ORDERS + '/create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

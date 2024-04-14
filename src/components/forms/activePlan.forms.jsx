@@ -55,7 +55,7 @@ function TimeTableEdit(props) {
         if (storeTime !== 0) {
             e.preventDefault()
             setIsRecording(false)
-            const response = await fetch('http://localhost:5001/api/orders/enterTaskTime', {
+            const response = await fetch(process.env.REACT_APP_API_URL_ORDERS + '/enterTaskTime', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -419,7 +419,7 @@ export default function ActivePlanForm(props) {
     const handleCheckedTask = async (e) => {
         let checkedId = e.currentTarget.id
         let checkedBool = e.currentTarget.checked
-        const response = await fetch('http://localhost:5001/api/orders/updateTaskChecked', {
+        const response = await fetch(process.env.REACT_APP_API_URL_ORDERS + '/updateTaskChecked', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

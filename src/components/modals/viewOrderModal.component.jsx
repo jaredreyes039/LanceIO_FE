@@ -102,7 +102,7 @@ export default function ViewOrderModal(props) {
                     }
                     break;
             }
-            const response = await fetch('http://localhost:5001/api/orders/updateOrder/status', {
+            const response = await fetch(process.env.REACT_APP_API_URL_ORDERS + '/updateOrder/status', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

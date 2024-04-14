@@ -45,7 +45,7 @@ export default function ClientsCard(props) {
             return;
         }
         else {
-            const res = await fetch("http://localhost:5001/api/clients/addContact", {
+            const res = await fetch(process.env.REACT_APP_API_URL_CLIENTS + "/addContact", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

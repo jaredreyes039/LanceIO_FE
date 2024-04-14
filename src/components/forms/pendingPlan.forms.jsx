@@ -22,7 +22,7 @@ export default function PendingPlanForm(props) {
     }
     const addTask = async (e) => {
         e.preventDefault();
-        const response = await fetch('http://localhost:5001/api/orders/addPlanningTask', {
+        const response = await fetch(process.env.REACT_APP_API_URL_ORDERS + '/addPlanningTask', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ export default function PendingPlanForm(props) {
         formData.append('order_id', props.orderId);
         let file = new File([imgFile], `${props.userId}_${props.orderId}_${new Date().getTime().toString()}.${imgFile.type.split("/")[1]}`, { type: imgFile.type })
         formData.append('file', file);
-        const imageUpload = await fetch("http://localhost:5001/api/orders/addMoodImage", {
+        const imageUpload = await fetch(process.env.REACT_APP_API_URL_ORDERS + "/addMoodImage", {
             method: "POST",
             body: formData,
         })

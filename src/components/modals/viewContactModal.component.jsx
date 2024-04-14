@@ -163,14 +163,14 @@ export default function ViewContactModal(props) {
                     <div className="modal-text">
                         <span>Payment History</span>
                         {clientOrders.length > 0 &&
-                            <table>
-                                <thead>
+                            <table className="w-full mt-2">
+                                <thead className="table-head">
                                     <tr>
                                         <th>Payment Date</th>
                                         <th>Amount</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody className="table-body">
                                     {clientOrders.map((order) => {
                                         return order.paymentRecord.map((rec, idx) => {
                                             if (rec[1] === 0) { return; }

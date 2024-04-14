@@ -76,7 +76,7 @@ export default function ServiceBasicForm(props) {
             const user_id = cookies.get("user_id");
             const username = cookies.get("username");
 
-            let res = await fetch("http://localhost:5001/api/basic-gigs/create", {
+            let res = await fetch(process.env.REACT_APP_API_URL_BASIC + "/create", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -124,7 +124,7 @@ export default function ServiceBasicForm(props) {
             const user_id = cookies.get("user_id");
             const username = cookies.get("username");
 
-            let res = await fetch(`http://localhost:5001/api/basic-gigs/update`, {
+            let res = await fetch(process.env.REACT_APP_API_URL_BASIC + `/update`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
