@@ -1,0 +1,15 @@
+.task-row {
+    text-align: center;
+    transition: all 50ms ease-in-out;
+}
+
+.task-row > th {
+    max-width: 120px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.task-row:hover {
+    background-color: #fefefe10;
+}

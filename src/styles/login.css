@@ -1,0 +1,64 @@
+.login-container {
+    background-color: #1E1E1E;
+    height: 100vh;
+    
+}
+.logo-container > .input:nth-last-of-type(1) {
+    margin-bottom: 48px;
+}
+
+
+
+.site-header {
+    background: linear-gradient(90deg, #46CD6E 3.49%, #A5CD46 99.78%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 48px;
+}
+
+
+.btn {
+    background-color: #46CD6E;
+    color: #1E1E1E;
+    width: 180px;
+    height: 50px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 24px;
+}
+
+.btn-submit {
+    background: linear-gradient(90deg, #46CD6E 3.49%, #A5CD46 99.78%);
+    color: #1E1E1E;
+    width: 33%;
+    height: fit-content;
+    padding: 6px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 1000;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 24px;
+    transition: all 150ms ease-in-out;
+}
+
+.btn-submit:hover{
+    scale: 1.1;
+}
+
+
+.link {
+    background: linear-gradient(90deg, #46CD6E 3.49%, #A5CD46 99.78%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 150ms ease-in-out;
+}
+.link:hover {
+    text-decoration: underline #46CD6E; 
+    cursor: pointer;
+}

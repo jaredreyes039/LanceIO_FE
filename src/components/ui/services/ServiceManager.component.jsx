@@ -1,0 +1,115 @@
+import { useContext, useEffect, useRef, useState } from "react";
+import EditServiceModal from "../../modals/editService.modal";
+import { modalContext } from "../../../providers/modal.provider";
+import { serviceDataContext } from "../../../providers/servicesData.provider";
+import AddServiceModal from "../../modals/addService.modal";
+import currencyStringToSymbol from "../../../utils/currencySymbolConversion.util";
+
+export default function ServiceManager(props) {
+
+    const { toast } = props.toast
+
+    const [editSelection, setEditSelection] = useState(null);
+    const [isLoading, setIsLoading] = useState(true)
+
+    const { currentModal, setCurrentModal } = useContext(modalContext);
+    const { serviceData } = useContext(serviceDataContext);
+
+    const handleEditService = (e) => {
+        let serviceId = e.target.parentNode.id
+        if (serviceId === "") {
+            return;
+        }
+        else {
+            setCurrentModal("editServiceModal")
+            let service = serviceData.filter((gig) => {
+                return gig._id === serviceId
+            })[0]
+            setEditSelection(service)
+        }
+    }
+
+    useEffect(() => {
+        if (serviceData.length) {
+            setIsLoading(false)
+        }
+    }, [serviceData])
+
+    return (
+        <>
+            {!isLoading &&
+                <div style={{ width: '100%', height: 'inherit', position: 'relative' }}>
+                    <AddServiceModal toast={toast} />
+                    <EditServiceModal
+                        isOpen={currentModal === 'editServiceModal' ? true : false}
+                        serviceData={editSelection}
+                    />
+
+                    <table className="table w-full">
+                        <thead className="table-head">
+                            <tr>
+                                <th scope="col" style={{ width: '25%' }}>Gig Title</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Est. Delivery Time</th>
+                                <th scope="col">Pending Orders</th>
+                                <th scope="col">Active Orders</th>
+                                <th scope="col">Fulfilled Orders</th>
+                                <th scope="col">Total Orders</th>
+                            </tr>
+                        </thead>
+                        <tbody className="table-body">
+                            {serviceData.map((gig) => {
+                                return (
+                                    <tr id={gig._id} onClick={(e) => {
+                                        handleEditService(e)
+                                    }}>
+                                        <td>{gig.title}</td>
+                                        <td>{currencyStringToSymbol(gig.currency)}{gig.price}{gig.payStruct === 'fixed' ? "" : "/hr"}</td>
+                                        <td>{gig.estDeliveryTime || ""}</td>
+                                        <td>{gig.orders.pending}</td>
+                                        <td>{gig.orders.active}</td>
+                                        <td>{gig.orders.completed}</td>
+                                        <td>TBD</td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                    <button onClick={() => { setCurrentModal('servicePlanningModal') }} className="card-btn">
+                        <span>+</span>
+                    </button>
+                </div>
+            }
+            {isLoading &&
+                <div style={{ width: '100%', height: 'inherit', position: 'relative' }}>
+                    <AddServiceModal />
+                    <div className="card-item-placeholder-header"
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center'
+                        }}>
+                        <h1 className="mb-2 underline" style={{
+                            color: '#020202'
+                        }}>
+                            Add, view, and manage your offered services here...
+                        </h1>
+                        <p className="modal-text mb-2 desc" style={{
+                            color: '#313131',
+                            maxWidth: '480px'
+                        }}>
+                            Welcome to LanceIO- your dashboard for mitigating
+                            the overwhelm of clients and orders in the digital age of freelancing.
+                            Getting started is incredibly simple, click the button in the lower right
+                            corner to add your offered services. Once you have a service, add your clients
+                            and see how LanceIO can be your new dashboard for all things freelance!
+                        </p>
+                    </div>
+                    <button onClick={() => { setCurrentModal('servicePlanningModal') }} className="card-btn">
+                        <span>+</span>
+                    </button>
+                </div>
+            }
+        </>
+    )
+}

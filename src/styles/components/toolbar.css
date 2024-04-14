@@ -1,0 +1,70 @@
+.toolbar-container {
+    content: "";
+    width: 244px;
+    max-width: 244px;
+    height: 100vh;
+    padding: 0px 24px;
+    background: #101010;
+    justify-content: space-evenly;
+    gap: 24px;
+    position: sticky;
+    top: 0;
+}
+
+.user-info > p, .brand-text {
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    background: linear-gradient(91deg, #46CD6E 0%, #A5CD46 102.97%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.user-image {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    width: 35%;
+    border-radius: 50%;
+}
+
+.selected {
+    background-color: #F4F2EF20;
+}
+.nav-container {
+    width: 100%;
+}
+.nav-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 8px 12px;
+    transition: all 100ms ease-in-out;
+}
+.nav-item > img {
+    margin-right: 12px;
+}
+.nav-item > p{
+    color: #F4F2EF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    font-family: Poppins;
+}
+.nav-item:hover {
+    background-color: #F4F2EF10;
+    cursor: pointer;
+}
+.footer-container > img {
+    margin-bottom: 12px;
+    width: 48px;
+    height: 48px;
+}
+
+.footer-container > .brand-text {
+    margin-bottom: 9.99%;
+}

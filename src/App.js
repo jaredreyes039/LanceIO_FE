@@ -1,24 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
-
+import './styles/login.css'
+import './styles/components/modals.css'
+import Login from './pages/Login.page';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import Home from './pages/Home.page';
+import Invoices from './pages/Invoices.page';
+import Services from './pages/Services.page';
+import User from './pages/User.page';
+import { AnimatePresence } from 'framer-motion';
+import ModalProvider from './providers/modal.provider';
+import FormSliderProvider from './providers/formSlider.provider';
+import ServiceDataProvider from './providers/servicesData.provider';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
+  const location = useLocation();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ServiceDataProvider>
+        <FormSliderProvider>
+          <ModalProvider>
+            <AnimatePresence mode='wait'>
+              <Routes key={location.pathname} location={location}>
+                <Route path="/" element={<Login />} />
+                <Route path="/dashboard" element={<Home />} />
+                <Route path="/invoices" element={<Invoices />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/user" element={<User />} />
+              </Routes>
+            </AnimatePresence>
+          </ModalProvider>
+        </FormSliderProvider>
+      </ServiceDataProvider>
+    </>
   );
 }
 
