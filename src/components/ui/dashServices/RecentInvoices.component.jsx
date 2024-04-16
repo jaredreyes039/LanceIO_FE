@@ -64,7 +64,7 @@ export default function RecentInvoices(props) {
 					}
 					catch (err) {
 						setIsLoading(false)
-						showErrMsg(true)
+						setShowErrMsg(true)
 						setInvoiceObjs([])
 					}
 				})
@@ -76,7 +76,7 @@ export default function RecentInvoices(props) {
 		}
 		catch (err) {
 			setIsLoading(false)
-			showErrMsg(true)
+			setShowErrMsg(true)
 		}
 	}, [serviceData, clientData, filteredOrderData])
 
