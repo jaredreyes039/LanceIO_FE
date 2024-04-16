@@ -97,7 +97,7 @@ export default function Home(props) {
                                                         </CardItemBlack>
                                                 </div>
                                                 <div className="flex flex-col flex-1">
-                                                        <div className="flex flex-1 justify-evenly">
+                                                        <div className="mb-4 sm:max-xl:mb-2 flex flex-1 justify-evenly">
                                                                 <CardItemBlackSmall
                                                                         value={serviceData.length}
                                                                         label="Services"
