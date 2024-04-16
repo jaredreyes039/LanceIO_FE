@@ -6,7 +6,6 @@ import '../styles/dashboard.css'
 import { useContext, useEffect, useRef } from "react";
 import { serviceDataContext } from "../providers/servicesData.provider";
 import OrdersCard from "../components/ui/dashServices/PendingOrdersCard.component";
-import RecentInvoices from "../components/ui/dashServices/RecentInvoices.component";
 import UpcomingDelivery from "../components/ui/dashServices/UpcomingDelivery.component";
 import LinePlot from "../components/ui/dashMain/LinePlot.component";
 import Cookies from "universal-cookie";
@@ -54,41 +53,49 @@ export default function Home(props) {
                         <div className="dashboard-page">
                                 <ToolBar />
                                 <PageBodyLayout>
-                                        <div className="top-dash-row flex justify-evenly flex-1">
-                                                <CardItemBlack
-                                                        width="33%"
-                                                        height="360px"
-                                                        icon="./icons/GigsIcon.svg"
-                                                        title="Active Orders"
-                                                >
-                                                        <OrdersCard orders={orderData} trackingType="active" />
-                                                </CardItemBlack>
-                                                <CardItemBlack
-                                                        width="33%"
-                                                        height="360px"
-                                                        icon="./icons/IncomeIcon.svg"
-                                                        title="Income Summary"
-                                                >
-                                                        <IncomeFlowCard />
-                                                </CardItemBlack>
-                                                <CardItemBlack
-                                                        width="33%"
-                                                        height="360px"
-                                                        icon="./icons/DashboardIcon.svg"
-                                                        title="Upcoming Deliveries"
-                                                >
-                                                        <UpcomingDelivery />
-                                                </CardItemBlack>
+                                        <div className="top-dash-row sm:max-xl:flex-col flex justify-evenly flex-1">
+                                                <div className="sm:max-xl:w-full w-1/3">
+                                                        <CardItemBlack
+                                                                width="100%"
+                                                                height="360px"
+                                                                icon="./icons/GigsIcon.svg"
+                                                                title="Active Orders"
+                                                        >
+                                                                <OrdersCard orders={orderData} trackingType="active" />
+                                                        </CardItemBlack>
+                                                </div>
+                                                <div className="sm:max-xl:w-full w-1/3">
+                                                        <CardItemBlack
+                                                                width="100%"
+                                                                height="360px"
+                                                                icon="./icons/IncomeIcon.svg"
+                                                                title="Income Summary"
+                                                        >
+                                                                <IncomeFlowCard />
+                                                        </CardItemBlack>
+                                                </div>
+                                                <div className="sm:max-xl:w-full w-1/3">
+                                                        <CardItemBlack
+                                                                width="100%"
+                                                                height="360px"
+                                                                icon="./icons/DashboardIcon.svg"
+                                                                title="Upcoming Deliveries"
+                                                        >
+                                                                <UpcomingDelivery />
+                                                        </CardItemBlack>
+                                                </div>
                                         </div>
-                                        <div className="mid-dash-row flex justify-evenly flex-1">
-                                                <CardItemBlack
-                                                        width="66%"
-                                                        height='fit-content'
-                                                        icon="./icons/IncomeIcon.svg"
-                                                        title="Your Outlook"
-                                                >
-                                                        <LinePlot />
-                                                </CardItemBlack>
+                                        <div className="mid-dash-row flex sm:max-xl:flex-col justify-evenly flex-1">
+                                                <div className="sm:max-xl:w-full w-2/3">
+                                                        <CardItemBlack
+                                                                width="100%"
+                                                                height='fit-content'
+                                                                icon="./icons/IncomeIcon.svg"
+                                                                title="Your Outlook"
+                                                        >
+                                                                <LinePlot />
+                                                        </CardItemBlack>
+                                                </div>
                                                 <div className="flex flex-col flex-1">
                                                         <div className="flex flex-1 justify-evenly">
                                                                 <CardItemBlackSmall

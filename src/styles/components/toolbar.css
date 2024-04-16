@@ -1,3 +1,9 @@
+@media screen only and (min-width: 360px){
+    .toolbar-container {
+        display: none !important;
+    }
+}
+
 .toolbar-container {
     content: "";
     width: 244px;

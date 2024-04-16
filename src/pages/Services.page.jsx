@@ -21,7 +21,7 @@ export default function Services(props) {
     let user_id = cookies.get("user_id");
     let token = cookies.get("token");
 
-    const { currentModal, setCurrentModal } = useContext(modalContext);
+    const { currentModal } = useContext(modalContext);
     const {
         serviceData,
         getServiceData,
@@ -45,8 +45,6 @@ export default function Services(props) {
         }
     }, [currentModal])
 
-
-    // DATA EFFECTS: Get Service Data
     useEffect(() => {
         getServiceData(user_id, token);
         getOrderData(user_id, token);
@@ -65,28 +63,32 @@ export default function Services(props) {
             <div className="gig-page">
                 <ToolBar />
                 <PageBodyLayout togglePageScroll={scrollEnabled}>
-                    <div className="flex w-full mb-4">
-                        <div className="left-dash-col flex">
-                            <div className="flex gap-4">
-                                <CardItemBlack
-                                    width="50%"
-                                    height="360px"
-                                    title="Upcoming Deliveries"
-                                    icon="./icons/DashboardIcon.svg"
-                                >
-                                    <UpcomingDelivery />
-                                </CardItemBlack>
-                                <CardItemBlack
-                                    width="50%"
-                                    height="360px"
-                                    title="Recent Invoices"
-                                    icon="./icons/DashboardIcon.svg"
-                                >
-                                    <RecentInvoices />
-                                </CardItemBlack>
+                    <div className="flex sm:max-xl:flex-col w-full gap-4 mb-4">
+                        <div className="sm:max-xl:w-full w-2/3 flex ">
+                            <div className="flex sm:max-xl:w-full sm:max-xl:flex-col gap-4">
+                                <div className="sm:max-xl:w-full w-1/2">
+                                    <CardItemBlack
+                                        width="100%"
+                                        height="360px"
+                                        title="Upcoming Deliveries"
+                                        icon="./icons/DashboardIcon.svg"
+                                    >
+                                        <UpcomingDelivery />
+                                    </CardItemBlack>
+                                </div>
+                                <div className="sm:max-xl:w-full w-1/2">
+                                    <CardItemBlack
+                                        width="100%"
+                                        height="360px"
+                                        title="Recent Invoices"
+                                        icon="./icons/DashboardIcon.svg"
+                                    >
+                                        <RecentInvoices />
+                                    </CardItemBlack>
+                                </div>
                             </div>
                         </div>
-                        <div className="right-dash-col flex">
+                        <div className="sm:max-xl:w-full w-1/3 flex">
                             <CardItemBlack
                                 width="100%"
                                 height="360px"
@@ -110,31 +112,37 @@ export default function Services(props) {
                             </div>
                         </CardItemGrad>
                     </div>
-                    <div className="mid-dash-row flex">
-                        <CardItemBlack
-                            width="50%"
-                            height="360px"
-                            title="Pending Orders"
-                            icon="./icons/InvoiceIcon.svg"
-                        >
-                            {<OrdersCard toast={toast} orders={orderData} trackingType="pending" />}
-                        </CardItemBlack>
-                        <CardItemBlack
-                            width="50%"
-                            height="360px"
-                            title="Active Orders"
-                            icon="./icons/InvoiceIcon.svg"
-                        >
-                            {<OrdersCard toast={toast} orders={orderData} trackingType="active" />}
-                        </CardItemBlack>
-                        <CardItemBlack
-                            width="50%"
-                            height="360px"
-                            title="Fulfilled Orders"
-                            icon="./icons/InvoiceIcon.svg"
-                        >
-                            {<OrdersCard toast={toast} orders={orderData} trackingType="completed" />}
-                        </CardItemBlack>
+                    <div className="mid-dash-row flex sm:max-xl:flex-col">
+                        <div className="w-1/2 sm:max-xl:w-full">
+                            <CardItemBlack
+                                width="100%"
+                                height="360px"
+                                title="Pending Orders"
+                                icon="./icons/InvoiceIcon.svg"
+                            >
+                                {<OrdersCard toast={toast} orders={orderData} trackingType="pending" />}
+                            </CardItemBlack>
+                        </div>
+                        <div className="w-1/2 sm:max-xl:w-full">
+                            <CardItemBlack
+                                width="100%"
+                                height="360px"
+                                title="Active Orders"
+                                icon="./icons/InvoiceIcon.svg"
+                            >
+                                {<OrdersCard toast={toast} orders={orderData} trackingType="active" />}
+                            </CardItemBlack>
+                        </div>
+                        <div className="w-1/2 sm:max-xl:w-full">
+                            <CardItemBlack
+                                width="100%"
+                                height="360px"
+                                title="Fulfilled Orders"
+                                icon="./icons/InvoiceIcon.svg"
+                            >
+                                {<OrdersCard toast={toast} orders={orderData} trackingType="completed" />}
+                            </CardItemBlack>
+                        </div>
                     </div>
                 </PageBodyLayout>
             </div>
