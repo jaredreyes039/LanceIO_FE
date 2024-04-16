@@ -164,21 +164,21 @@ export default function ViewContactModal(props) {
                         <span>Payment History</span>
                         {clientOrders.length > 0 &&
                             <table className="w-full mt-2">
-                                <thead className="table-head">
+                                <thead className="table-head text-center">
                                     <tr>
                                         <th>Payment Date</th>
                                         <th>Amount</th>
                                     </tr>
                                 </thead>
-                                <tbody className="table-body">
+                                <tbody className="">
                                     {clientOrders.map((order) => {
                                         return order.paymentRecord.map((rec, idx) => {
                                             if (rec[1] === 0) { return; }
                                             else {
                                                 return (
-                                                    <tr>
-                                                        <td>{new Date(rec[0]).toLocaleDateString()}</td>
-                                                        <td>{currencyStringToSymbol(order.payment.currency)}{rec[1]}</td>
+                                                    <tr className="bg-opacity-10 bg-gray-100 text-center">
+                                                        <td className="py-2">{new Date(rec[0]).toLocaleDateString()}</td>
+                                                        <td className="py-2">{currencyStringToSymbol(order.payment.currency)}{rec[1]}</td>
                                                     </tr>
                                                 )
                                             }
