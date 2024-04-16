@@ -1,9 +1,13 @@
 import { useContext, useEffect, useState } from 'react';
 import { serviceDataContext } from '../../../providers/servicesData.provider';
+import LoadingIcon from '../cards/LoadingIcon.component';
 
 export default function RecentInvoices(props) {
 
 	const { clientData, orderData, serviceData } = useContext(serviceDataContext);
+
+	const [isLoading, setIsLoading] = useState(true);
+	const [showErrMsg, setShowErrMsg] = useState(false);
 	const [invoiceObjs, setInvoiceObjs] = useState([]);
 	const [filteredOrderData, setFilteredOrderData] = useState([]);
 
@@ -43,25 +47,40 @@ export default function RecentInvoices(props) {
 		, [orderData])
 
 	useEffect(() => {
-		let invoiceObjsArr = [];
-		if (filteredOrderData.length > 0 && clientData.length > 0 && serviceData.length > 0) {
-			filteredOrderData.map((order) => {
-				let service = serviceData.filter((service) => {
-					return service._id === order.service_id;
-				});
-				let client = clientData.filter((client) => {
-					return client._id === order.client_id
+		try {
+			let invoiceObjsArr = [];
+			if (filteredOrderData.length > 0 && clientData.length > 0 && serviceData.length > 0) {
+				filteredOrderData.map((order) => {
+					try {
+						let service = serviceData.filter((service) => {
+							return service._id === order.service_id;
+						});
+						let client = clientData.filter((client) => {
+							return client._id === order.client_id
+						})
+						invoiceObjsArr.push({ client: client[0].name, title: service[0].title, delDate: new Date(order.deliveryDate).toLocaleString(), url: 'invoices' + order._id + '.pdf', order_num: order.order_num })
+						setIsLoading(false)
+						setInvoiceObjs(invoiceObjsArr)
+					}
+					catch (err) {
+						setIsLoading(false)
+						showErrMsg(true)
+						setInvoiceObjs([])
+					}
 				})
-				invoiceObjsArr.push({ client: client[0].name, title: service[0].title, delDate: new Date(order.deliveryDate).toLocaleString(), url: 'invoices' + order._id + '.pdf', order_num: order.order_num })
-				setInvoiceObjs(invoiceObjsArr)
-			})
+			}
+			else {
+				setIsLoading(false)
+				setInvoiceObjs([])
+			}
 		}
-		else {
-			setInvoiceObjs([])
+		catch (err) {
+			setIsLoading(false)
+			showErrMsg(true)
 		}
 	}, [serviceData, clientData, filteredOrderData])
 
-	if (invoiceObjs.length > 0 && orderData.length > 0) {
+	if (invoiceObjs.length > 0 && !isLoading) {
 		return (
 			<div style={{ height: '240px' }}>
 				<ul className='container-scroll'>
@@ -102,7 +121,7 @@ export default function RecentInvoices(props) {
 			</div>
 		)
 	}
-	else {
+	else if (invoiceObjs.length === 0 && !isLoading) {
 		return (
 			<>
 				<div className="card-item-placeholder-header">
@@ -115,6 +134,22 @@ export default function RecentInvoices(props) {
 					</p>
 				</div>
 			</>
+		)
+	}
+	else if (!showErrMsg && isLoading) {
+		return (
+			<div className="w-full flex items-center justify-center">
+				<LoadingIcon />
+			</div>
+		)
+	}
+	else {
+		return (
+			<div className="w-full flex items-center justify-center">
+				<p className="modal-text desc">
+					Failed to retrieve invoices, please try again later. If this problem persists, contact LanceIO support through Github.
+				</p>
+			</div>
 		)
 	}
 }
