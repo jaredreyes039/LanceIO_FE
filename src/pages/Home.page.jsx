@@ -1,6 +1,5 @@
 import ToolBar from "../layouts/Toolbar.component";
 import CardItemBlack from "../components/ui/cards/CardItemBlack.component";
-import CardItemGrad from "../components/ui/cards/CardItemGreen.component";
 import PageBodyLayout from "../layouts/PageBody.layout";
 import '../styles/dashboard.css'
 import { useContext, useEffect, useRef } from "react";
