@@ -9,7 +9,7 @@ export default function CardItemBlack(props) {
                     <img src={props.icon} alt={props.title} />
                     <h3>{props.title}</h3>
                 </div>
-                <div className="card-item-black-body" style={{ height: 'calc(100% - 36px)' }}>
+                <div className="card-item-black-body" style={{ height: 'calc(100% - 64px)' }}>
                     {props.children}
                 </div>
             </div>
