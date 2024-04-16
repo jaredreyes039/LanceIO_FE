@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { serviceDataContext } from "../../../providers/servicesData.provider";
 import { modalContext } from "../../../providers/modal.provider";
 import currencyStringToSymbol from "../../../utils/currencySymbolConversion.util";
+import LoadingIcon from "../cards/LoadingIcon.component";
 
 
 export default function UpcomingDelivery(props) {
@@ -9,29 +10,38 @@ export default function UpcomingDelivery(props) {
     const { setCurrentModal, setModalData } = useContext(modalContext)
     const { clientData, serviceData, orderData } = useContext(serviceDataContext)
 
+    const [isLoading, setIsLoading] = useState(true)
+    const [showErrMsg, setShowErrMsg] = useState(true)
     const [upcomingDels, setUpcomingDels] = useState([])
 
     // Display effect
     useEffect(() => {
-        let orderDataCopy = [...orderData]
-        // Currently set < 7 days
-        let filteredDeliveries = orderDataCopy.filter(
-            (order) => {
-                let daysDiff = Math.round((new Date(order.deliveryDate) - Date.now()) / (1000 * 60 * 60 * 24))
-                if (daysDiff <= 14 && daysDiff > 0) {
-                    return order
-                }
+        try {
+            let orderDataCopy = [...orderData]
+            // Currently set < 7 days
+            let filteredDeliveries = orderDataCopy.filter(
+                (order) => {
+                    let daysDiff = Math.round((new Date(order.deliveryDate) - Date.now()) / (1000 * 60 * 60 * 24))
+                    if (daysDiff <= 14 && daysDiff > 0) {
+                        return order
+                    }
 
+                }
+            )
+            // Add service title and client name to orders
+            for (let i = 0; i < filteredDeliveries.length; i++) {
+                if (serviceData.length > 0 && clientData.length > 0) {
+                    filteredDeliveries[i].serviceTitle = serviceData.filter(service => service._id === filteredDeliveries[i].service_id)[0].title
+                    filteredDeliveries[i].clientName = clientData.filter(client => client._id === filteredDeliveries[i].client_id)[0].name
+                }
             }
-        )
-        // Add service title and client name to orders
-        for (let i = 0; i < filteredDeliveries.length; i++) {
-            if (serviceData.length > 0 && clientData.length > 0) {
-                filteredDeliveries[i].serviceTitle = serviceData.filter(service => service._id === filteredDeliveries[i].service_id)[0].title
-                filteredDeliveries[i].clientName = clientData.filter(client => client._id === filteredDeliveries[i].client_id)[0].name
-            }
+            setIsLoading(false)
+            setUpcomingDels(filteredDeliveries)
         }
-        setUpcomingDels(filteredDeliveries)
+        catch (err) {
+            setIsLoading(false)
+            setShowErrMsg(true)
+        }
     }, [orderData, serviceData, clientData])
 
     // Order viewing
@@ -47,7 +57,7 @@ export default function UpcomingDelivery(props) {
         }
     }
 
-    if (upcomingDels.length > 0) {
+    if (upcomingDels.length > 0 && !isLoading) {
         return (
             <>
                 {upcomingDels && clientData && serviceData &&
@@ -85,7 +95,7 @@ export default function UpcomingDelivery(props) {
             </>
         )
     }
-    else {
+    else if (upcomingDels.length === 0 && !isLoading) {
         return (
             <>
                 <div className="card-item-placeholder-header">
@@ -100,5 +110,20 @@ export default function UpcomingDelivery(props) {
             </>
         )
     }
-
+    else if (!showErrMsg) {
+        return (
+            <div className="w-full h-36 flex items-center justify-center">
+                <LoadingIcon />
+            </div>
+        )
+    }
+    else {
+        return (
+            <div className="w-full h-36 flex items-center justify-center">
+                <p className="modal-text desc">
+                    Failed to retrieve delivery data, please try again later. If this problem persists, contact us through Github.
+                </p>
+            </div>
+        )
+    }
 }
