@@ -64,7 +64,7 @@ export default function Services(props) {
                 <ToolBar />
                 <PageBodyLayout togglePageScroll={scrollEnabled}>
                     <div className="flex sm:max-xl:flex-col w-full gap-4 mb-4">
-                        <div className="sm:max-xl:w-full w-2/3 flex ">
+                        <div className="sm:max-xl:w-full w-1/2 flex ">
                             <div className="flex sm:max-xl:w-full sm:max-xl:flex-col gap-4">
                                 <div className="sm:max-xl:w-full w-1/2">
                                     <CardItemBlack
@@ -88,7 +88,7 @@ export default function Services(props) {
                                 </div>
                             </div>
                         </div>
-                        <div className="sm:max-xl:w-full w-1/3 flex">
+                        <div className="sm:max-xl:w-full w-1/2 flex">
                             <CardItemBlack
                                 width="100%"
                                 height="360px"

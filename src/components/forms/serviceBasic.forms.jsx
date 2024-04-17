@@ -117,8 +117,6 @@ export default function ServiceBasicForm(props) {
     }
     const handleUpdateServiceBasic = async (e) => {
         e.preventDefault();
-        console.log("Submitting edits...")
-
         try {
             const token = cookies.get("token");
             const user_id = cookies.get("user_id");
@@ -149,9 +147,6 @@ export default function ServiceBasicForm(props) {
                 setCurrentModal("")
                 await refreshServiceData(user_id, token)
                 await refreshOrderData(user_id, token)
-            }
-            else {
-                console.log("error")
             }
         }
         catch (err) {
@@ -223,24 +218,7 @@ export default function ServiceBasicForm(props) {
                     <textarea style={{
                         height: '100px'
                     }} onChange={(e) => { handleGigDescription(e) }} value={gigDescription} required className="input" type="text" placeholder="Gig Description" />
-                    <label htmlFor="CostDel">Cost and Est. Delivery Time</label>
-                    <div name="CostDel" className="form-group flex flex-row items-center justify-center">
-                        <span className="modal-text relative left-4">$</span>
-                        <input value={gigPrice} onChange={(e) => { handleGigPrice(e) }} required style={{ marginBottom: 0 }} type="number" className="input w-full" step="0.01" max="1000000" placeholder="Gig Price" />
-                    </div>
-                    <div className="mb-2 flex flex-row items-center justify-center gap-4">
-                        <select value={gigCurrency} onChange={(e) => { handleGigCurrency(e) }} required className="select-input">
-                            <option default value="">Select Currency</option>
-                            {currencyList.map((currency, i) => {
-                                return <option value={currency}>{currency} {currencySymbolsList[i]}</option>
-                            })}
-                        </select>
-                        <select value={gigPaymentType} onChange={(e) => { handleGigPaymentType(e) }} required className="select-input">
-                            <option default value="">Payment Structure</option>
-                            <option value="hourly">Hourly</option>
-                            <option value="fixed">Fixed</option>
-                        </select>
-                    </div>
+                    <label htmlFor="CostDel">Est. Delivery Time</label>
                     <div className="mb-2 flex flex-row items-center justify-center gap-4">
                         <select style={{ width: '100%' }} value={gigEstDeliveryTime} onChange={(e) => { handleChangeDeliveryDate(e) }} required className="select-input">
                             <option default value="">Est. Delivery Time</option>

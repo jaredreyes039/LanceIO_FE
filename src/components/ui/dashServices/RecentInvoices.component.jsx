@@ -100,10 +100,6 @@ export default function RecentInvoices(props) {
 							-full">
 
 										<div>
-											<span>Service: </span>
-											<p>{invoice.title}</p>
-										</div>
-										<div>
 											<span>Client: </span>
 											<p>{invoice.client}</p>
 										</div>
