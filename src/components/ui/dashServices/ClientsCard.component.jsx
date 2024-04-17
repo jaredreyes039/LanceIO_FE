@@ -164,7 +164,7 @@ export default function ClientsCard(props) {
                     <form className="modal-form" onSubmit={((e) => { handleSubmitContactForm(e) })}>
                         <p className="modal-text mb-2">Client Contact Details</p>
                         <label>Client Name</label>
-                        <input ref={clientName} className="input" type="text" id="client_name" placeholder="Client Name" />
+                        <input ref={clientName} required className="input" type="text" id="client_name" placeholder="Client Name" />
                         <label>Client Email</label>
                         <input ref={clientEmail} className="input" type="text" id="client_email" placeholder="Client Email (Optional)" />
                         <p className="modal-text mb-2">Optional Client Notes</p>

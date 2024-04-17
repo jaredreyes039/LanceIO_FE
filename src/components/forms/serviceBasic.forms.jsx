@@ -49,6 +49,7 @@ export default function ServiceBasicForm(props) {
     const [gigCurrency, setGigCurrencyBasic] = useState("");
     const [gigPaymentType, setGigPaymentTypeBasic] = useState("");
     const [gigEstDeliveryTime, setGigEstDeliveryTime] = useState("");
+    const [err, setErr] = useState(0);
 
     // INPUT HANDLING: BOTH FORMS
     const handleGigName = (e) => {
@@ -69,49 +70,65 @@ export default function ServiceBasicForm(props) {
     const handleChangeDeliveryDate = (e) => {
         setGigEstDeliveryTime(e.target.value);
     }
+
+    function checkFields() {
+        if (gigName.length == 0 || gigDescription.length == 0 || gigEstDeliveryTime.length == 0 || gigCurrency.length == 0) {
+            return 0;
+        }
+        if (gigPrice == 0) {
+            return 0;
+        }
+        return 1;
+    }
+
     const handleSumbitBasic = async (e) => {
         e.preventDefault();
-        try {
-            const token = cookies.get("token");
-            const user_id = cookies.get("user_id");
-            const username = cookies.get("username");
+        if (checkFields()) {
+            try {
+                const token = cookies.get("token");
+                const user_id = cookies.get("user_id");
+                const username = cookies.get("username");
 
-            let res = await fetch(process.env.REACT_APP_API_URL_BASIC + "/create", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    token: token,
-                    user_id: user_id,
-                    username: username,
-                    title: gigName,
-                    description: gigDescription,
-                    price: gigPrice,
-                    currency: gigCurrency,
-                    payStruct: gigPaymentType,
-                    totalIncome: gigPrice,
-                    estDeliveryTime: gigEstDeliveryTime,
+                let res = await fetch(process.env.REACT_APP_API_URL_BASIC + "/create", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        token: token,
+                        user_id: user_id,
+                        username: username,
+                        title: gigName,
+                        description: gigDescription,
+                        price: gigPrice,
+                        currency: gigCurrency,
+                        payStruct: gigPaymentType,
+                        totalIncome: gigPrice,
+                        estDeliveryTime: gigEstDeliveryTime,
+                    })
                 })
-            })
 
-            if (res.status === 200) {
-                refreshServiceData(user_id, token)
-                setGigNameBasic("");
-                setGigDescriptionBasic("");
-                setGigPriceBasic("");
-                setGigCurrencyBasic("");
-                setGigPaymentTypeBasic("");
-                setGigEstDeliveryTime("");
-                setCurrentPosition(0)
-                setCurrentModal("")
+                if (res.status === 200) {
+                    refreshServiceData(user_id, token)
+                    setGigNameBasic("");
+                    setGigDescriptionBasic("");
+                    setGigPriceBasic("");
+                    setGigCurrencyBasic("");
+                    setGigPaymentTypeBasic("");
+                    setGigEstDeliveryTime("");
+                    setCurrentPosition(0)
+                    setCurrentModal("")
+                }
+                else {
+                    console.log("error")
+                }
             }
-            else {
-                console.log("error")
+            catch (err) {
+                console.log(err);
             }
         }
-        catch (err) {
-            console.log(err);
+        else {
+            setErr(1);
         }
 
     }
@@ -178,6 +195,7 @@ export default function ServiceBasicForm(props) {
     if (!props.edit) {
         return (
             <>
+                {err === 1 && <p className="text-red-500 text-md py-2">Check that all forms are filled properly. Note: Price can not be 0.</p>}
                 <form onSubmit={(e) => { handleSumbitBasic(e) }} ref={basicPlanningForm} className="gig-modal-form flex flex-col">
                     <TextInput label="Service Name" inputName="serviceName" value={gigName} changeHandler={handleGigName} placeholder={"Enter Service Name..."} />
                     <TextAreaInput value={gigDescription} changeHandler={handleGigDescription} placeholder="Enter Service Description..." inputName="serviceDescription" label="Service Description" minHeight={100} maxHeight={120} />

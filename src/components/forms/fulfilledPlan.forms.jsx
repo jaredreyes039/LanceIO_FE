@@ -73,7 +73,7 @@ export default function FulfilledPlanForm(props) {
                     <label htmlFor="Gig Description">Final Comments (Not Included in Invoice)</label>
                     <textarea style={{
                         height: '100px'
-                    }} onChange={(e) => { handleFinalCommentsChange(e) }} value={finalComments} required className="input" type="text" placeholder="Final comments..." />
+                    }} onChange={(e) => { handleFinalCommentsChange(e) }} value={finalComments} className="input" type="text" placeholder="Final comments..." />
                     <button type="submit" className="btn-submit self-end">Generate Invoice</button>
                     <button className="btn-submit self-end" type="button" onClick={(e) => { openPaymentModal(e) }}>Add Payment</button>
                 </form>
