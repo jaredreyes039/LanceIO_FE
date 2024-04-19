@@ -102,7 +102,7 @@ export default function Login(props) {
     return (
         <>
             <ToastContainer />
-            <div className="login-container p-12 flex flex-1 w-full justify-center">
+            <div className="login-container bg-black p-12 flex flex-1 w-full justify-center">
                 <div className="flex w-fit h-fit self-center flex-col items-center">
                     <div className="logo-container">
                         <img src={LOGOSVG} alt="logo" />

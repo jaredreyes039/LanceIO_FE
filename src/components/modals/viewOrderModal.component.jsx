@@ -240,7 +240,7 @@ export default function ViewOrderModal(props) {
                         X
                     </button>
                 </div>
-                <div className="xs:max-lg:w-full p-0 gig-modal-header flex flex-col w-1/2 border-r-2 border-white xs:max-lg:border-0" style={{ height: '90%' }}>
+                <div className="xs:max-lg:hidden xs:max-lg:w-full p-0 gig-modal-header flex flex-col w-1/2 border-r-2 border-white xs:max-lg:border-0" style={{ height: '90%' }}>
                     <h1>{orderService.title !== undefined ? orderService.title : ""}</h1>
                     <div style={{ height: 'inherit', overflowY: 'scroll', overflowX: 'hidden' }}>
                         <div className="modal-text mb-4">

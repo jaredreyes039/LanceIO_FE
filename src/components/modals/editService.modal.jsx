@@ -39,7 +39,6 @@ export default function EditServiceModal(props) {
 
     async function handleCloseModal() {
         await setIsOpen(false);
-        console.log('closing service planning modal...');
         setCurrentModal("");
     }
 
@@ -49,7 +48,7 @@ export default function EditServiceModal(props) {
     else if (currentModal === "editServiceModal") {
         return (
             <div>
-                <div ref={editServiceModal} className="modal-container modal-hidden">
+                <div ref={editServiceModal} className="hidden gig-modal xs:w-full xs:max-lg:flex-col bg-gray-900 flex flex-row">
                     <div className="close-modal-btn">
                         <button onClick={() => { handleCloseModal() }}
                             style={{
@@ -73,20 +72,20 @@ export default function EditServiceModal(props) {
                             X
                         </button>
                     </div>
-                    <div className="modal-header">
+                    <div className="xs:max-lg:w-full p-0 gig-modal-header flex flex-col w-1/2 border-white xs:max-lg:border-0">
                         <h1>Edit Service</h1>
-                        <h2 className="modal-text-header">{serviceData.title}</h2>
-                        <p className="modal-text">{serviceData.description}</p>
-                        <div className="mt-4">
+                        <h2 className="modal-text-header xs:max-lg:hidden">{serviceData.title}</h2>
+                        <p className="modal-text xs:max-lg:hidden">{serviceData.description}</p>
+                        <div className="mt-4 xs:max-lg:hidden">
                             <b><span>Cost:</span></b><p className="modal-text">{currencyStringToSymbol(serviceData.currency)}{serviceData.price}{serviceData.payStruct === "fixed" ? " Fixed" : "/hr"}</p>
                             <b><span>Est. Delivery Time: </span></b><p className="modal-text">{serviceData.estDeliveryTime || "N/A"}</p>
                         </div>
                     </div>
-                    <div className="gig-modal-body flex flex-col">
+                    <div className="gig-modal-body pl-12 w-1/2 xs:max-lg:w-full flex flex-col xs:max-lg:pl-0">
                         <ServiceBasicForm edit={true} serviceEdit={serviceData} tableRefresh={tableRefresh} refresh={refresh} />
                     </div>
                 </div>
-            </div>
+            </div >
         )
     }
     else {

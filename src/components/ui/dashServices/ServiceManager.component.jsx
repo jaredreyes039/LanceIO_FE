@@ -56,9 +56,9 @@ export default function ServiceManager(props) {
                                         <th scope="col" style={{ width: '25%' }}>Gig Title</th>
                                         <th scope="col">Price</th>
                                         <th scope="col">Est. Delivery Time</th>
-                                        <th scope="col">Pending Orders</th>
-                                        <th scope="col">Active Orders</th>
-                                        <th scope="col">Fulfilled Orders</th>
+                                        <th className="xs:max-md:hidden" scope="col">Pending Orders</th>
+                                        <th className="xs:max-md:hidden" scope="col">Active Orders</th>
+                                        <th className="xs:max-md:hidden" scope="col">Fulfilled Orders</th>
                                     </tr>
                                 </thead>
                                 <tbody className="table-body">
@@ -70,9 +70,9 @@ export default function ServiceManager(props) {
                                                 <td>{gig.title}</td>
                                                 <td>{currencyStringToSymbol(gig.currency)}{gig.price.toFixed(2)}{gig.payStruct === 'fixed' ? " Fixed" : "/hr"}</td>
                                                 <td>{gig.estDeliveryTime || ""}</td>
-                                                <td>{gig.orders.pending}</td>
-                                                <td>{gig.orders.active}</td>
-                                                <td>{gig.orders.completed}</td>
+                                                <td className="xs:max-md:hidden"  >{gig.orders.pending}</td>
+                                                <td className="xs:max-md:hidden"   >{gig.orders.active}</td>
+                                                <td className="xs:max-md:hidden"  >{gig.orders.completed}</td>
                                             </tr>
                                         )
                                     })}
@@ -94,21 +94,20 @@ export default function ServiceManager(props) {
                             flexDirection: 'column',
                             alignItems: 'center'
                         }}>
-                        <h1 className="mb-2 underline" style={{
-                            color: '#020202'
-                        }}>
+                        <h1 className="mb-2 underline text-white">
                             Add, view, and manage your offered services here...
                         </h1>
-                        <p className="modal-text mb-2 desc" style={{
-                            color: '#313131',
-                            maxWidth: '480px'
-                        }}>
+                        <p className="xs:max-md:hidden modal-text mb-2 desc text-white w-1/3">
                             Welcome to LanceIO- your dashboard for mitigating
                             the overwhelm of clients and orders in the digital age of freelancing.
                             Getting started is incredibly simple, click the button in the lower right
                             corner to add your offered services. Once you have a service, add your clients
                             and see how LanceIO can be your new dashboard for all things freelance!
                         </p>
+                        <p className="md:hidden modal-text mb-2 desc text-white w-1/3">
+                            Add a service to get started!
+                        </p>
+
                     </div>
                     <button onClick={() => { setCurrentModal('servicePlanningModal') }} className="card-btn">
                         <span>+</span>

@@ -34,14 +34,14 @@ export default function AddServiceModal(props) {
         }
     }, [currentModal])
 
-    useEffect(() => {
-        if (currentPosition === 0) {
-            sliderBtn.current.style.left = "0%";
-        }
-        else {
-            sliderBtn.current.style.left = "50%";
-        }
-    }, [currentPosition])
+    //useEffect(() => {
+    //    if (currentPosition === 0) {
+    //        sliderBtn.current.style.left = "0%";
+    //    }
+    //    else {
+    //        sliderBtn.current.style.left = "50%";
+    //    }
+    //}, [currentPosition])
 
     return (
         <div ref={gigPlanningModal} className="hidden gig-modal xs:w-full xs:max-lg:flex-col bg-gray-900 flex flex-row">
@@ -76,7 +76,7 @@ export default function AddServiceModal(props) {
                 <p className="modal-text xs:max-md:mb-4">{planningInstructions}</p>
             </div>
             <div className="gig-modal-body pl-12 w-1/2 xs:max-lg:w-full flex flex-col xs:max-lg:pl-0">
-                <div className="slider-btn-container">
+                {/*<div className="slider-btn-container">
                     <div className="slider-btn-background">
                         <div ref={sliderBtn} className="slider-btn"></div>
                         <div onClick={() => { setCurrentPosition(0) }} className="basis-1/2 text-center relative z-10">
@@ -86,7 +86,7 @@ export default function AddServiceModal(props) {
                             <p>Pro</p>
                         </div>
                     </div>
-                </div>
+                </div>*/}
                 <ServiceBasicForm toast={toast} />
                 <ServiceProForm />
             </div>
