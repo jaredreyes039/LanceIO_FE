@@ -17,7 +17,7 @@ export default function Login(props) {
     const [isAuth, setIsAuth] = useState(null);
 
     // Login form should be abstracted
-    const [loginUsername, setLoginUsername] = useState("");
+    const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
 
     // Register form should be abstracted
@@ -46,10 +46,14 @@ export default function Login(props) {
             })
         });
         const data = await response.json();
-        if (data) {
+        if (data.success) {
             setIsLoading(false)
-            toast("Registered successfully, welcome to LanceIO, and goodluck on your freelancing ventures!")
+            toast.success("Registered successfully, welcome to LanceIO, and goodluck on your freelancing ventures!")
             setIsRegistering(false)
+        }
+        else {
+            toast.error(data.message)
+            setIsLoading(false)
         }
     }
 
@@ -65,23 +69,26 @@ export default function Login(props) {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                username: loginUsername,
+                email: loginEmail,
                 password: loginPassword,
                 token: token
             })
         });
         const data = await response.json();
 
-        cookies.set('token', data.token, { path: '/' });
-        cookies.set('username', loginUsername, { path: '/' })
-        cookies.set('user_id', data.user_id, { path: '/' })
 
         if (data.token) {
+            cookies.set('token', data.token, { path: '/' });
+            cookies.set('username', data.user, { path: '/' })
+            cookies.set('email', loginEmail, { path: '/' })
+            cookies.set('user_id', data.user_id, { path: '/' })
+
             setIsLoading(false)
             setIsAuth(true)
         }
         else {
             setIsLoading(false)
+            toast.error(data.message)
             setIsAuth(false)
         }
     }
@@ -122,7 +129,7 @@ export default function Login(props) {
                         : // CONDITIONAL SEPARATED HERE
                         <>
                             <form className="flex flex-col w-full items-center">
-                                <input onChange={(e) => { setLoginUsername(e.target.value) }} value={loginUsername} type="text" className="input" placeholder="Username" />
+                                <input onChange={(e) => { setLoginEmail(e.target.value) }} value={loginEmail} type="text" className="input" placeholder="Email Address" />
                                 <input onChange={(e) => { setLoginPassword(e.target.value) }} value={loginPassword} type="password" className="input" placeholder="Password" />
                                 <button onClick={(e) => { handleLoginFormSubmit(e) }} className="btn btn-primary">Login</button>
                             </form>

@@ -53,7 +53,6 @@ export default function Services(props) {
 
     return (
         <>
-            <ToastContainer />
             {currentModal === 'viewOrderModal' && <ViewOrderModal toast={toast} token={token} />}
             {currentModal === 'paymentModal' && <PaymentModal toast={toast} token={token} userId={user_id} />}
             <div className="backdrop" ref={backdrop}>

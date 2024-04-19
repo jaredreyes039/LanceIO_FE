@@ -1,17 +1,17 @@
-import './App.css';
-import './styles/login.css'
-import './styles/components/modals.css'
-import Login from './pages/Login.page';
-import { Route, Routes, useLocation } from 'react-router-dom';
-import Home from './pages/Home.page';
-import Invoices from './pages/Invoices.page';
-import Services from './pages/Services.page';
-import User from './pages/User.page';
-import { AnimatePresence } from 'framer-motion';
-import ModalProvider from './providers/modal.provider';
-import FormSliderProvider from './providers/formSlider.provider';
-import ServiceDataProvider from './providers/servicesData.provider';
-import 'react-toastify/dist/ReactToastify.css';
+import "./App.css";
+import "./styles/login.css";
+import "./styles/components/modals.css";
+import Login from "./pages/Login.page";
+import { Route, Routes, useLocation } from "react-router-dom";
+import Home from "./pages/Home.page";
+import Invoices from "./pages/Invoices.page";
+import Services from "./pages/Services.page";
+import User from "./pages/User.page";
+import { AnimatePresence } from "framer-motion";
+import ModalProvider from "./providers/modal.provider";
+import FormSliderProvider from "./providers/formSlider.provider";
+import ServiceDataProvider from "./providers/servicesData.provider";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const location = useLocation();
   return (
@@ -19,7 +19,7 @@ function App() {
       <ServiceDataProvider>
         <FormSliderProvider>
           <ModalProvider>
-            <AnimatePresence mode='wait'>
+            <AnimatePresence mode="wait">
               <Routes key={location.pathname} location={location}>
                 <Route path="/" element={<Login />} />
                 <Route path="/dashboard" element={<Home />} />

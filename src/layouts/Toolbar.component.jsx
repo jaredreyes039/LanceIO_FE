@@ -20,6 +20,7 @@ export default function ToolBar(props) {
     let userNavItem_alt = useRef();
 
     let cookies = new Cookies(null, { path: '/' });
+    let email = cookies.get('email') ? cookies.get('email') : "";
     let username = cookies.get('username') ? cookies.get('username') : "";
     username = username.charAt(0).toUpperCase() + username.slice(1);
 
@@ -32,16 +33,20 @@ export default function ToolBar(props) {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                username: cookies.get('username'),
+                email: cookies.get('email'),
                 token: cookies.get('token')
             })
         });
         const data = await response.json();
         if (data.success) {
             cookies.remove('username')
+            cookies.remove('email')
             cookies.remove('user_id')
             cookies.remove('token');
             navigate('/');
+        }
+        else {
+            toast.error("Failed to connect to user server, please try again later.")
         }
     }
 
