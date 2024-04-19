@@ -180,7 +180,7 @@ export default function AddOrderModal(props) {
 
     return (
         <>
-            <div ref={addOrderModal} className="hidden gig-modal xs:w-full xs:max-lg:flex-col bg-gray-900 flex flex-row  ">
+            <div ref={addOrderModal} className="hidden z-40 xs:w-full xs:max-lg:flex-col bg-gray-900 flex flex-row  ">
                 <ModalContainer closeHandler={handleCloseModal}>
                     <div className="xs:max-lg:mb-4 lg:overflow-y-scroll lg:max-h-[500px] xs:max-lg:w-full p-0 gig-modal-header flex flex-col w-1/2 border-r-2 border-white xs:max-lg:border-0">
                         <h1>Add Client Order</h1>
