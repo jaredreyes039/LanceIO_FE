@@ -180,10 +180,7 @@ function TimeTableEdit(props) {
     )
 }
 
-// GETTING THIS TO LIVE RENDER IS A BITCH BE WARNED
-// CLEAN THIS MESS IN REFACTORING
 export function TimeTable(props) {
-
     const { toast } = props;
 
     const [isEditing, setIsEditing] = useState(false);
@@ -205,7 +202,6 @@ export function TimeTable(props) {
     const [totalEarned, setTotalEarned] = useState(0)
 
 
-    // JUST DONT FUCKING TOUCH
     useEffect(() => {
         setOrder(orderData.filter((order) => {
             return order._id === props.orderData._id
@@ -261,7 +257,6 @@ export function TimeTable(props) {
                     }
                 })
             }
-            console.log('Sum:' + earningsSum)
             setTotalEarned(earningsSum.toFixed(2))
         }
     }, [tasks, order])
@@ -319,7 +314,7 @@ export function TimeTable(props) {
                             if (order.payment.pay_struct === "hourly") {
                                 if (task.time) {
                                     amountEarned = order.payment.price * (task.time / (1000 * 60 * 60))
-                                    amountEarned = amountEarned.toFixed(3)
+                                    amountEarned = amountEarned.toFixed(2)
 
                                 }
                                 else {

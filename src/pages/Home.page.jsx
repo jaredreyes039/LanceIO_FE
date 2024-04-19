@@ -88,6 +88,7 @@ export default function Home(props) {
                                                 <div className="xs:max-xl:w-full w-2/3">
                                                         <CardItemBlack
                                                                 width="100%"
+                                                                height="540px"
                                                                 icon="./icons/IncomeIcon.svg"
                                                                 title="Your Outlook"
                                                         >

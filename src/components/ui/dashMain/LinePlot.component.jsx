@@ -101,7 +101,7 @@ export default function LinePlot() {
 		setCurrentData(currentCopy)
 	}, [orderData])
 
-	if (currentData.x.length > 0) {
+	if (currentData.x.length >= 3) {
 		return (
 			<Line
 				width={((0.66 * 1440) - 128).toString() + 'px'}
@@ -142,7 +142,7 @@ export default function LinePlot() {
 		)
 	}
 
-	if (currentData.x.length <= 0) {
+	if (currentData.x.length < 3) {
 		return (
 			<div className="card-item-placeholder-header"
 				style={{
@@ -154,7 +154,7 @@ export default function LinePlot() {
 				}}>
 					Track your income flow and more...
 				</h1>
-				<p className="modal-text desc" style={{
+				<p className="modal-text desc mb-2" style={{
 					maxWidth: '640px'
 				}}>
 					Welcome to LanceIO- your dashboard for mitigating
@@ -162,6 +162,11 @@ export default function LinePlot() {
 					Getting started is incredibly simple, selected <strong>'Orders & Services'</strong> click the button in the lower right
 					corner of the <strong>Service Manager</strong> to add your offered services. Once you have a service, add your clients
 					and see how LanceIO can be your new dashboard for all things freelance!
+				</p>
+				<p className="modal-text desc" style={{
+					maxWidth: '640px'
+				}}>
+					Once you've recorded 3 payments, you'll be able to see a chart of your income flow to make better budgetting and managment decisions for the future!
 				</p>
 			</div>
 
