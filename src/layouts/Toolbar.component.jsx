@@ -114,7 +114,7 @@ export default function ToolBar(props) {
                         <div className="border-t-2 border-black w-4 h-1"></div>
                     </div>
                 </div>
-                <Menu className="bg-gray-800 absolute left-0 top-0 bg-opacity-100">
+                <Menu className="py-12 bg-gray-800 absolute left-0 top-0 bg-opacity-100">
                     <div onClick={() => { handlePageNav('/services') }} ref={gigNavItem_alt} className='mb-4 w-full flex text-white gap-4 px-2 py-2'>
                         <img src='./icons/GigsIcon.svg' alt="home" />
                         <p>Services, Orders, & Invoicing</p>
@@ -125,6 +125,9 @@ export default function ToolBar(props) {
                     </div>
                     <div onClick={(e) => { handlePageNav('/user') }} ref={userNavItem_alt} className='w-full flex text-white gap-4 px-2 py-2'>                        <img src='./icons/userIcon.svg' alt="home" />
                         <p>User Settings</p>
+                    </div>
+                    <div className='absolute bottom-12 left-12 w-full flex flex-col items-center'>
+                        <button onClick={(e) => { handleLogout(e) }} className='text-center font-bold w-2/3 bg-green-300 rounded-full px-4 py-2'>LogOut</button>
                     </div>
                 </Menu>
             </div>
