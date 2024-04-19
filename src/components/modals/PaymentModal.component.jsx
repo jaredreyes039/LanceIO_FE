@@ -177,7 +177,7 @@ export default function PaymentModal(props) {
                                     </>
                                 }
                             </div>
-                            <button onClick={() => { setPaymentPhase(1) }} disabled={isEmpty(currentOrder) ? 1 : 0} className="btn-submit self-end">Next Step</button>
+                            <button onClick={() => { setPaymentPhase(1) }} disabled={isEmpty(currentOrder) ? 1 : 0} className="btn-submit w-1/3 self-end">Next Step</button>
                         </div>
                         <div style={{ height: '100%', display: paymentPhase === 1 ? 'flex' : 'none' }} className="flex flex-col p-2">
                             {!isEmpty(currentOrder) && <AddPaymentForm toast={toast} client_id={currentOrder.clientId} token={props.token} orderId={currentOrder.orderId} userId={props.userId} />}

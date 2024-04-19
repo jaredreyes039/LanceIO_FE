@@ -53,8 +53,8 @@ export default function FulfilledPlanForm(props) {
     return (
         <>
             <PaymentModal toast={toast} order={order} />
-            <div className="order-sum p-4">
-                <h1>Order Summary</h1>
+            <div className="p-4 gig-modal-form  md:max-h-[620px] md:h-[540px] xs:max-md:h-dvh flex-col overflow-y-scroll ">
+                <h1 className="text-2xl text-white mb-4">Order Summary</h1>
                 <div className="modal-text mb-4">
                     <span>Order #: </span>
                     <p>{currentOrder._id}</p>
@@ -74,8 +74,10 @@ export default function FulfilledPlanForm(props) {
                     <textarea style={{
                         height: '100px'
                     }} onChange={(e) => { handleFinalCommentsChange(e) }} value={finalComments} className="input" type="text" placeholder="Final comments..." />
-                    <button type="submit" className="btn-submit self-end">Generate Invoice</button>
-                    <button className="btn-submit self-end" type="button" onClick={(e) => { openPaymentModal(e) }}>Add Payment</button>
+                    <div className="w-full flex md:flex-col h-fit xs:max-sm:h-[120px] xs:max-sm:gap-4">
+                        <button type="submit" className="btn-submit w-1/3 md:self-end xs:max-sm:w-full">Generate Invoice</button>
+                        <button className="btn-submit w-1/3 md:self-end xs:max-sm:w-full" type="button" onClick={(e) => { openPaymentModal(e) }}>Add Payment</button>
+                    </div>
                 </form>
 
             </div>

@@ -69,7 +69,7 @@ export default function AddPaymentForm(props) {
                             color: '#F4DBDB'
                         }} className="mb-6" theme={DATE_PICKER_THEME} />
                 </div>
-                <button type="submit" className="btn-submit self-end">Submit Payment</button>
+                <button type="submit" className="btn-submit w-1/3 self-end">Submit Payment</button>
 
             </form>
         </>

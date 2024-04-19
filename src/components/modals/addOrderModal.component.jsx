@@ -180,9 +180,9 @@ export default function AddOrderModal(props) {
 
     return (
         <>
-            <div ref={addOrderModal} className="modal-hidden">
+            <div ref={addOrderModal} className="hidden gig-modal xs:w-full xs:max-lg:flex-col bg-gray-900 flex flex-row  ">
                 <ModalContainer closeHandler={handleCloseModal}>
-                    <div className="modal-header">
+                    <div className="xs:max-lg:mb-4 lg:overflow-y-scroll lg:max-h-[500px] xs:max-lg:w-full p-0 gig-modal-header flex flex-col w-1/2 border-r-2 border-white xs:max-lg:border-0">
                         <h1>Add Client Order</h1>
                         <p className="modal-text mb-8">
                             <p>
@@ -220,7 +220,7 @@ export default function AddOrderModal(props) {
                             </div>
                         </div>
                     </div>
-                    <div className="modal-body">
+                    <div className="md:p-4 xs:max-md:w-full w-1/2">
                         <div style={{ height: '100%', display: orderPhase === 0 ? 'flex' : 'none' }} className="flex flex-col p-2">
                             <div className="modal-text">
                                 <span>1. Select a Service</span>
@@ -254,11 +254,11 @@ export default function AddOrderModal(props) {
                                         <p className="modal-text mb-4">
                                             You don't offer any services yet! Create a service first.
                                         </p>
-                                        <button className="btn-submit self-end">+ Add Service</button>
+                                        <button className="btn-submit w-1/3 self-end">+ Add Service</button>
                                     </>
                                 }
                             </div>
-                            <button onClick={() => { setOrderPhase(1) }} disabled={isEmpty(currentSelectedService) ? 1 : 0} className="btn-submit self-end">Next Step</button>
+                            <button onClick={() => { setOrderPhase(1) }} disabled={isEmpty(currentSelectedService) ? 1 : 0} className="btn-submit w-1/3 self-end">Next Step</button>
                         </div>
                         <div style={{ height: '100%', display: orderPhase === 1 ? 'flex' : 'none' }} className="flex flex-col">
                             <div className="modal-text">
@@ -345,8 +345,8 @@ export default function AddOrderModal(props) {
                                 <div className="flex justify-between">
                                     <button type='button' onClick={() => {
                                         setOrderPhase(0)
-                                    }} className="btn-submit">Back</button>
-                                    <button type="submit" className="btn-submit">Submit Order</button>
+                                    }} className="btn-submit w-1/3">Back</button>
+                                    <button type="submit" className="btn-submit w-1/3">Submit Order</button>
                                 </div>
                             </form>
                         </div>
