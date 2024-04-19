@@ -36,7 +36,7 @@ export default function MoodBoard(props) {
                 }
                 {!props.preview &&
                     <div className="mood-board">
-                        {imgUrls.length !== 0 ? imgUrls.map((url, index) => {
+                        {imgUrls.length > 0 ? imgUrls.map((url, index) => {
                             return (
                                 <img
                                     className="mood-image"

@@ -436,7 +436,7 @@ export default function ActivePlanForm(props) {
         <>
 
             <form style={{ display: props.display }} className="gig-modal-form p-0 flex-col md:max-h-[620px] md:h-[540px] md:overflow-y-scroll ">
-                <MoodBoard preview={false} imgFile={props.imgFile} imgUrls={imgUrls} orderData={props.orderData} />
+                <MoodBoard preview={imgUrls.length > 0 ? false : true} imgFile={props.imgFile} imgUrls={imgUrls} orderData={props.orderData} />
                 <TimeTable toast={toast} editingAllowed={true} token={props.token} orderData={props.orderData} />
             </form>
         </>

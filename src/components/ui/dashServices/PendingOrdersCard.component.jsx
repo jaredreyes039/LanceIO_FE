@@ -122,11 +122,9 @@ export default function OrdersCard(props) {
                     </div>
                     <div style={{ display: pendingOrders.length > 0 ? 'none' : 'block' }} className="no-orders-container">
                         <div className="flex flex-col justify-center items-center w-full p-12">
-                            <h1 className="text-primaryWhite mb-8">0 Orders Pending</h1>
-                            <p className="text-primaryWhite">
-                                You currently have no pending orders,
-                                to start tracking and managing client orders, select a client
-                                from your client contacts and add an order to their profile.
+                            <h1 className="text-primaryWhite mb-8 ">0 Orders Pending</h1>
+                            <p className="text-primaryWhite ">
+                                You currently have no pending orders.
                             </p>
                         </div>
                     </div>
@@ -175,10 +173,8 @@ export default function OrdersCard(props) {
                     <div style={{ display: activeOrders.length > 0 ? 'none' : 'block' }} className="no-orders-container">
                         <div className="flex flex-col justify-center items-center w-full p-12">
                             <h1 className="text-primaryWhite mb-8">0 Orders Active</h1>
-                            <p className="text-primaryWhite">
-                                You currently have no active orders,
-                                to mark an order as active, select a pending order
-                                and select 'Promote to Active'.
+                            <p className="text-primaryWhite ">
+                                You currently have no active orders.
                             </p>
                         </div>
                     </div>
@@ -228,10 +224,8 @@ export default function OrdersCard(props) {
                     <div style={{ display: completedOrders.length > 0 ? 'none' : 'block' }} className="no-orders-container">
                         <div className="flex flex-col justify-center items-center w-full p-12">
                             <h1 className="text-primaryWhite mb-8">0 Orders Fulfilled</h1>
-                            <p className="text-primaryWhite">
-                                You currently have no active orders,
-                                to mark an order as fulfilled, select an active order
-                                then select 'Fullfill Order' and fill out our fulfillment form.
+                            <p className="text-primaryWhite ">
+                                You currently have no fulfilled orders.
                             </p>
                         </div>
                     </div>

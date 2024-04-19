@@ -126,7 +126,7 @@ export default function RecentInvoices(props) {
 					</h1>
 					<p className="modal-text mb-2 desc">
 						With LanceIO, generating invoices is as easy as fulfilling
-						your orders, and using our handy 'generate' tool!
+						your orders, and using our handy ''Generate Invoice' button!
 					</p>
 				</div>
 			</>
