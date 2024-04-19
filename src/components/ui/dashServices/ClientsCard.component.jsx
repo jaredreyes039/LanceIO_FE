@@ -174,7 +174,7 @@ export default function ClientsCard(props) {
                         <input ref={clientConnection} className="input" type="text" id="client_connection" placeholder="How did you connect? (Optional)" />
                         <label>Additional Notes</label>
                         <textarea ref={clientNotes} className="input" type="text" id="client_notes" placeholder="Notes (Optional)" />
-                        <button type="submit" className="btn-submit self-end">+ Add Client</button>
+                        <button type="submit" className="btn-submit w-1/3 self-end">+ Add Client</button>
                     </form>
                 </div>
             </div>

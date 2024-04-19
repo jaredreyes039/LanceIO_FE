@@ -72,7 +72,7 @@ export default function EditServiceModal(props) {
                             X
                         </button>
                     </div>
-                    <div className="xs:max-lg:w-full p-0 gig-modal-header flex flex-col w-1/2 border-white xs:max-lg:border-0">
+                    <div className="xs:max-lg:w-full p-0 gig-modal-header flex flex-col w-1/2  border-white xs:max-lg:border-0">
                         <h1>Edit Service</h1>
                         <h2 className="modal-text-header xs:max-lg:hidden">{serviceData.title}</h2>
                         <p className="modal-text xs:max-lg:hidden">{serviceData.description}</p>

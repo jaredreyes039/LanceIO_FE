@@ -107,9 +107,7 @@ function TimeTableEdit(props) {
                 borderRadius: '8px'
 
             }}></div>
-            <div className="modal-container" style={{
-                height: '240px',
-            }}>
+            <div className="gig-modal flex flex-col xs:max-md:h-dvh xs:max-md:w-full h-fit" >
                 <div className="close-modal-btn">
                     <button onClick={(e) => { handleCloseTimeTable(e) }}
                         style={{
@@ -285,9 +283,8 @@ export function TimeTable(props) {
             }} >
                 Time Tracker
             </label>
-            <div style={{
+            <div className="overflow-x-scroll" style={{
                 display: 'flex',
-                alignItems: 'center',
                 gap: '12px',
                 marginBottom: '24px'
             }}>
@@ -364,7 +361,7 @@ export function TimeTable(props) {
                                 </tr>
                             )
                         })}
-                        {props.editingAllowed && <tr class="bg-white dark:bg-gray-800">
+                        {/*{props.editingAllowed && <tr class="bg-white dark:bg-gray-800">
                             <th style={{
                                 fontWeight: 'bold',
                                 textDecoration: 'underline'
@@ -378,7 +375,7 @@ export function TimeTable(props) {
                             }} class="px-6 py-4  whitespace-nowrap table-action">
                                 Add Task
                             </td>
-                        </tr>}
+                        </tr>}*/}
                     </tbody>
                     <tfoot>
                         <tr style={{
@@ -438,7 +435,7 @@ export default function ActivePlanForm(props) {
     return (
         <>
 
-            <form style={{ display: props.display }} className="gig-modal-form flex-col">
+            <form style={{ display: props.display }} className="gig-modal-form p-0 flex-col md:max-h-[620px] md:h-[540px] md:overflow-y-scroll ">
                 <MoodBoard preview={false} imgFile={props.imgFile} imgUrls={imgUrls} orderData={props.orderData} />
                 <TimeTable toast={toast} editingAllowed={true} token={props.token} orderData={props.orderData} />
             </form>

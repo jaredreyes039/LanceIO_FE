@@ -221,7 +221,7 @@ export default function ServiceBasicForm(props) {
                             })}
                         </select>
                     </div>
-                    <button type="submit" className="btn-submit self-end">+ Add Gig</button>
+                    <button type="submit" className="btn-submit w-1/3 self-end">+ Add Gig</button>
                 </form>
             </>
         )
@@ -245,7 +245,7 @@ export default function ServiceBasicForm(props) {
                             })}
                         </select>
                     </div>
-                    <button type="submit" className="btn-submit self-end">Save Edits</button>
+                    <button type="submit" className="btn-submit w-1/3 self-end">Save Edits</button>
                 </form>
             </>
         )

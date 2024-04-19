@@ -8,13 +8,26 @@
     background: #010101;
     border: 2px solid white;
     border-radius: 8px;
-    z-index: 100;
+    z-index: 40;
     box-shadow: #F4DBDB50 0px 0px 20px 10px;
     padding: 24px;
     max-height: 100vh;
     max-width: 1000px;
 }
-
+.gig-modal-alt {
+    display: flex;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #010101;
+    border: 2px solid white;
+    border-radius: 8px;
+    box-shadow: #F4DBDB50 0px 0px 20px 10px;
+    padding: 24px;
+    max-height: 100vh;
+    max-width: 1000px;
+}
 .gig-modal-header {
     height: 100%;
     padding-right: 24px;
@@ -128,7 +141,6 @@
     background: linear-gradient(90deg, #46CD6E 3.49%, #A5CD46 99.78%);
     content: "";
     height: 24px;
-    z-index: 1;
     transition: all 150ms ease-in-out;
 }
 

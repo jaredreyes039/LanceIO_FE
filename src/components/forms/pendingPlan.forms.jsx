@@ -70,7 +70,7 @@ export default function PendingPlanForm(props) {
     }, [selectedOrder])
 
     return (
-        <form style={{ display: props.display }} className="gig-modal-form flex-col">
+        <form style={{ display: props.display }} className="gig-modal-form flex-col xs:max-md:h-dvh xs:max-md:overflow-y-scroll md:max-h-[620px] md:h-[540px] md:overflow-y-scroll ">
             <label htmlFor='tasks'>Planned Tasks</label>
             <div className="mb-4">
                 {props.orderData.plannedTasks && tasks.map((task, index) => {

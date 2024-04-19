@@ -218,10 +218,10 @@ export default function ViewContactModal(props) {
                                 </div>
                             </div>
                             <div className="flex gap-4">
-                                <button className="btn-submit self-end" style={{
+                                <button className="btn-submit w-1/3 self-end" style={{
                                     width: '45%'
                                 }} onClick={() => { setCurrentModal('addOrderModal') }}>+ Assign Order</button>
-                                <button className="btn-submit self=end" style={{ width: '45%' }}
+                                <button className="btn-submit w-1/3 self=end" style={{ width: '45%' }}
                                     onClick={() => {
                                         setCurrentModal("paymentModal")
                                     }}>+ Add Payment</button>
@@ -238,7 +238,7 @@ export default function ViewContactModal(props) {
                                 Lance.IO provides to help you keep track of your freelance business.
                             </p>
                             <div className="flex gap-4">
-                                <button className="btn-submit self-end" onClick={() => { setCurrentModal('addOrderModal') }}>+ Assign Order</button>
+                                <button className="btn-submit w-1/3 self-end" onClick={() => { setCurrentModal('addOrderModal') }}>+ Assign Order</button>
                             </div>
                         </div>
                     }

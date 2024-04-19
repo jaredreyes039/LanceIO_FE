@@ -215,7 +215,7 @@ export default function ViewOrderModal(props) {
 
     return (
         <>
-            <div ref={viewOrderModal} className="hidden gig-modal xs:w-full xs:max-lg:flex-col bg-gray-900 flex flex-row  overflow-y-scroll">
+            <div ref={viewOrderModal} className="hidden gig-modal xs:w-full xs:max-lg:flex-col bg-gray-900 flex flex-row">
                 <div className="close-modal-btn">
                     <button onClick={() => {
                         setCurrentModal("");
@@ -240,9 +240,9 @@ export default function ViewOrderModal(props) {
                         X
                     </button>
                 </div>
-                <div className="xs:max-lg:hidden xs:max-lg:w-full p-0 gig-modal-header flex flex-col w-1/2 border-r-2 border-white xs:max-lg:border-0" style={{ height: '90%' }}>
+                <div className="xs:max-lg:hidden xs:max-lg:w-full p-0 gig-modal-header flex flex-col w-1/2 border-r-2 xs:max-md:overflow-y-scroll border-white xs:max-lg:border-0">
                     <h1>{orderService.title !== undefined ? orderService.title : ""}</h1>
-                    <div style={{ height: 'inherit', overflowY: 'scroll', overflowX: 'hidden' }}>
+                    <div className="md:max-h-[560px] md:h-[540px] md:min-h-[540px]" style={{ overflowY: 'scroll', overflowX: 'hidden' }}>
                         <div className="modal-text mb-4">
                             <div className="modal-text flex gap-2">
                                 <span>Order #</span>
@@ -299,16 +299,15 @@ export default function ViewOrderModal(props) {
                     </div>
                 </div>
 
-                <div className="pl-12 xs:max-lg:pt-8 w-1/2 xs:max-lg:w-full flex flex-col xs:max-lg:pl-0" style={{
+                <div className="xs:max-md:h-dvh overflow-y-scroll pl-12 pt-12 w-1/2 xs:max-lg:w-full flex flex-col xs:max-lg:pl-0" style={{
                     position: 'relative',
                 }}>
-                    <div className="slider-btn-container" style={{
+                    <div className="slider-btn-container top-0 xs:top-4" style={{
                         position: 'absolute',
-                        top: '0px',
                         left: '0px',
                     }}>
                         <div className="slider-btn-background" style={{ width: '90%' }}>
-                            <div ref={sliderBtn} className="slider-btn" style={{ width: '33%' }}></div>
+                            <div ref={sliderBtn} className="slider-btn" style={{ width: '34%' }}></div>
                             <div onClick={(e) => { updateOrderStatus(e, 0) }} className="basis-1/3 text-center relative z-10">
                                 <p>Pending</p>
                             </div>
