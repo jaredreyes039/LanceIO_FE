@@ -5,8 +5,6 @@ import { serviceDataContext } from "../../providers/servicesData.provider";
 import { formSliderContext } from "../../providers/formSlider.provider";
 import { modalContext } from "../../providers/modal.provider";
 
-
-
 export default function AddServiceModal(props) {
     const { toast } = props;
     const planningInstructions = [

@@ -1,5 +1,6 @@
 import CountUp from 'react-countup'
 import '../../../styles/components/cardItems.css'
+import PropTypes from 'prop-types'
 
 export default function CardItemBlackSmall(props) {
 
@@ -9,4 +10,9 @@ export default function CardItemBlackSmall(props) {
             <p className="text-white text-md">{props.label}</p>
         </div>
     )
+}
+
+CardItemBlackSmall.propTypes = {
+    value: PropTypes.number.isRequired,
+    label: PropTypes.string.isRequired
 }
