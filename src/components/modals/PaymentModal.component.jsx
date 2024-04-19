@@ -94,7 +94,7 @@ export default function PaymentModal(props) {
         <>
             <div className="modal-hidden" ref={paymentModal}>
                 <ModalContainer closeHandler={handleCloseModal}>
-                    <div className="modal-header">
+                    <div className="xs:max-lg:mb-4 lg:overflow-y-scroll lg:max-h-[500px] xs:max-lg:w-full p-0 gig-modal-header flex flex-col w-1/2 border-r-2 border-white xs:max-lg:border-0">
                         <h1>Payment Modal</h1>
                         <div className="modal-text mb-4">
                             <p>Welcome to the final step of LanceIO's tracking process- adding and tracking your clients' payments! With a simple form, it's
@@ -128,7 +128,7 @@ export default function PaymentModal(props) {
                             </div>
                         </div>}
                     </div>
-                    <div className="modal-body">
+                    <div className="gig-modal-body pl-12 w-1/2 xs:max-lg:w-full flex flex-col xs:max-lg:pl-0">
                         <div style={{ height: '100%', display: paymentPhase === 0 ? 'flex' : 'none' }} className="flex flex-col p-2">
                             <div className="modal-text">
                                 <span>1. Select an Order</span>

@@ -52,8 +52,8 @@ export default function Home(props) {
                         <div className="dashboard-page">
                                 <ToolBar />
                                 <PageBodyLayout>
-                                        <div className="top-dash-row sm:max-xl:flex-col flex justify-evenly flex-1">
-                                                <div className="sm:max-xl:w-full w-1/3">
+                                        <div className="top-dash-row xs:max-xl:flex-col flex justify-evenly flex-1">
+                                                <div className="xs:max-xl:w-full w-1/3">
                                                         <CardItemBlack
                                                                 width="100%"
                                                                 height="360px"
@@ -63,17 +63,17 @@ export default function Home(props) {
                                                                 <OrdersCard orders={orderData} trackingType="active" />
                                                         </CardItemBlack>
                                                 </div>
-                                                <div className="sm:max-xl:w-full w-1/3">
+                                                <div className="xs:max-xl:w-full w-1/3">
                                                         <CardItemBlack
                                                                 width="100%"
                                                                 height="360px"
-                                                                icon="./icons/IncomeIcon.svg"
+                                                                icon="./icons/GigsIcon.svg"
                                                                 title="Income Summary"
                                                         >
                                                                 <IncomeFlowCard />
                                                         </CardItemBlack>
                                                 </div>
-                                                <div className="sm:max-xl:w-full w-1/3">
+                                                <div className="xs:max-xl:w-full w-1/3">
                                                         <CardItemBlack
                                                                 width="100%"
                                                                 height="360px"
@@ -84,11 +84,10 @@ export default function Home(props) {
                                                         </CardItemBlack>
                                                 </div>
                                         </div>
-                                        <div className="mid-dash-row flex sm:max-xl:flex-col justify-evenly flex-1">
-                                                <div className="sm:max-xl:w-full w-2/3">
+                                        <div className="mid-dash-row flex xs:max-xl:flex-col justify-evenly flex-1">
+                                                <div className="xs:max-xl:w-full w-2/3">
                                                         <CardItemBlack
                                                                 width="100%"
-                                                                height='fit-content'
                                                                 icon="./icons/IncomeIcon.svg"
                                                                 title="Your Outlook"
                                                         >
@@ -96,7 +95,7 @@ export default function Home(props) {
                                                         </CardItemBlack>
                                                 </div>
                                                 <div className="flex flex-col flex-1">
-                                                        <div className="mb-4 sm:max-xl:mb-2 flex flex-1 justify-evenly">
+                                                        <div className="mb-4 xs:max-xl:mb-2 flex flex-1 justify-evenly">
                                                                 <CardItemBlackSmall
                                                                         value={serviceData.length}
                                                                         label="Services"

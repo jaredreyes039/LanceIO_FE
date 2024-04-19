@@ -134,17 +134,17 @@ export default function ViewOrderModal(props) {
                 setOrderModalFormView(0)
                 break;
             case 'active':
-                sliderBtn.current.style.left = "25%";
+                sliderBtn.current.style.left = "33%";
                 setOrderModalFormView(1)
 
                 break;
             case 'completed':
-                sliderBtn.current.style.left = "50%";
+                sliderBtn.current.style.left = "66%";
                 setOrderModalFormView(2)
 
                 break;
             case 'cancelled':
-                sliderBtn.current.style.left = "75%";
+                sliderBtn.current.style.left = "100%";
                 setOrderModalFormView(3)
 
                 break;
@@ -166,17 +166,17 @@ export default function ViewOrderModal(props) {
                 setOrderModalFormView(0)
                 break;
             case 1:
-                sliderBtn.current.style.left = "25%";
+                sliderBtn.current.style.left = "33%";
                 setOrderModalFormView(1)
 
                 break;
             case 2:
-                sliderBtn.current.style.left = "50%";
+                sliderBtn.current.style.left = "66%";
                 setOrderModalFormView(2)
 
                 break;
             case 3:
-                sliderBtn.current.style.left = "75%";
+                sliderBtn.current.style.left = "100%";
                 setOrderModalFormView(3)
 
                 break;
@@ -215,7 +215,7 @@ export default function ViewOrderModal(props) {
 
     return (
         <>
-            <div ref={viewOrderModal} className="modal-container modal-hidden">
+            <div ref={viewOrderModal} className="hidden gig-modal xs:w-full xs:max-lg:flex-col bg-gray-900 flex flex-row  overflow-y-scroll">
                 <div className="close-modal-btn">
                     <button onClick={() => {
                         setCurrentModal("");
@@ -227,7 +227,7 @@ export default function ViewOrderModal(props) {
                             backgroundColor: "transparent",
                             position: 'absolute',
                             top: '12px',
-                            left: '12px',
+                            right: '12px',
                             border: '2px solid #ffffff',
                             borderRadius: '50%',
                             width: '32px',
@@ -240,7 +240,7 @@ export default function ViewOrderModal(props) {
                         X
                     </button>
                 </div>
-                <div className="modal-header p-4" style={{ height: '90%' }}>
+                <div className="xs:max-lg:hidden xs:max-lg:w-full p-0 gig-modal-header flex flex-col w-1/2 border-r-2 border-white xs:max-lg:border-0" style={{ height: '90%' }}>
                     <h1>{orderService.title !== undefined ? orderService.title : ""}</h1>
                     <div style={{ height: 'inherit', overflowY: 'scroll', overflowX: 'hidden' }}>
                         <div className="modal-text mb-4">
@@ -299,7 +299,7 @@ export default function ViewOrderModal(props) {
                     </div>
                 </div>
 
-                <div className="modal-body pt-8" style={{
+                <div className="pl-12 xs:max-lg:pt-8 w-1/2 xs:max-lg:w-full flex flex-col xs:max-lg:pl-0" style={{
                     position: 'relative',
                 }}>
                     <div className="slider-btn-container" style={{
@@ -308,18 +308,15 @@ export default function ViewOrderModal(props) {
                         left: '0px',
                     }}>
                         <div className="slider-btn-background" style={{ width: '90%' }}>
-                            <div ref={sliderBtn} className="slider-btn" style={{ width: '25%' }}></div>
-                            <div onClick={(e) => { updateOrderStatus(e, 0) }} className="basis-1/4 text-center relative z-10">
+                            <div ref={sliderBtn} className="slider-btn" style={{ width: '33%' }}></div>
+                            <div onClick={(e) => { updateOrderStatus(e, 0) }} className="basis-1/3 text-center relative z-10">
                                 <p>Pending</p>
                             </div>
-                            <div onClick={(e) => { updateOrderStatus(e, 1) }} className="basis-1/4 text-center relative z-10">
+                            <div onClick={(e) => { updateOrderStatus(e, 1) }} className="basis-1/3 text-center relative z-10">
                                 <p>Active</p>
                             </div>
-                            <div onClick={(e) => { updateOrderStatus(e, 2) }} className="basis-1/4 text-center relative z-10">
+                            <div onClick={(e) => { updateOrderStatus(e, 2) }} className="basis-1/3 text-center relative z-10">
                                 <p>Fulfilled</p>
-                            </div>
-                            <div onClick={(e) => { updateOrderStatus(e, 3) }} className="basis-1/4 text-center relative z-10">
-                                <p>Cancelled</p>
                             </div>
                         </div>
                     </div>

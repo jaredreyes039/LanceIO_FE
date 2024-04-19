@@ -114,7 +114,7 @@ export default function ClientsCard(props) {
                 clientOrders={currentClientView.orders}
                 clientId={currentClientView.clientId}
             />
-            <div ref={contactsFormModal} className="modal-container modal-hidden">
+            <div ref={contactsFormModal} className="hidden gig-modal xs:w-full xs:max-lg:flex-col bg-gray-900 flex flex-row">
                 <div className="close-modal-btn">
                     <button onClick={(e) => { handleCloseModal(e) }}
                         style={{
@@ -139,7 +139,7 @@ export default function ClientsCard(props) {
                     </button>
                 </div>
 
-                <div className="modal-header">
+                <div className="xs:max-lg:w-full p-0 gig-modal-header flex flex-col w-1/2 border-r-2 border-white xs:max-lg:border-0">
                     <h1>Add Contacts to Track & Assign Orders</h1>
                     <p className="modal-text">
                         Before you can begin tracking orders,
@@ -160,7 +160,7 @@ export default function ClientsCard(props) {
                 </div>
 
 
-                <div className="modal-body">
+                <div className="gig-modal-body pl-12 w-1/2 xs:max-lg:w-full flex flex-col xs:max-lg:pl-0">
                     <form className="modal-form" onSubmit={((e) => { handleSubmitContactForm(e) })}>
                         <p className="modal-text mb-2">Client Contact Details</p>
                         <label>Client Name</label>
