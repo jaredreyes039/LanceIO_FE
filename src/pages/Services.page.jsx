@@ -63,32 +63,26 @@ export default function Services(props) {
             <div className="gig-page">
                 <ToolBar />
                 <PageBodyLayout togglePageScroll={scrollEnabled}>
-                    <div className="flex sm:max-xl:flex-col w-full gap-4 mb-4">
-                        <div className="sm:max-xl:w-full w-1/2 flex ">
-                            <div className="flex sm:max-xl:w-full sm:max-xl:flex-col gap-4">
-                                <div className="sm:max-xl:w-full w-1/2">
-                                    <CardItemBlack
-                                        width="100%"
-                                        height="360px"
-                                        title="Upcoming Deliveries"
-                                        icon="./icons/DashboardIcon.svg"
-                                    >
-                                        <UpcomingDelivery />
-                                    </CardItemBlack>
-                                </div>
-                                <div className="sm:max-xl:w-full w-1/2">
-                                    <CardItemBlack
-                                        width="100%"
-                                        height="360px"
-                                        title="Recent Invoices"
-                                        icon="./icons/DashboardIcon.svg"
-                                    >
-                                        <RecentInvoices />
-                                    </CardItemBlack>
-                                </div>
-                            </div>
+                    <div className="flex xs:max-xl:flex-col w-full gap-4 mb-4">
+                        <div className="w-full">
+                            <CardItemBlack
+                                height="360px"
+                                title="Upcoming Deliveries"
+                                icon="./icons/DashboardIcon.svg"
+                            >
+                                <UpcomingDelivery />
+                            </CardItemBlack>
                         </div>
-                        <div className="sm:max-xl:w-full w-1/2 flex">
+                        <div className="w-full">
+                            <CardItemBlack
+                                height="360px"
+                                title="Recent Invoices"
+                                icon="./icons/DashboardIcon.svg"
+                            >
+                                <RecentInvoices />
+                            </CardItemBlack>
+                        </div>
+                        <div className="w-full flex">
                             <CardItemBlack
                                 width="100%"
                                 height="360px"
@@ -101,7 +95,7 @@ export default function Services(props) {
                     </div>
                     {/* Service Manager */}
                     <div className="mid-dash-row flex">
-                        <CardItemGrad
+                        <CardItemBlack
                             width="100%"
                             height="360px"
                             title="Service Manager"
@@ -110,10 +104,10 @@ export default function Services(props) {
                             <div className="all-gigs-table-container">
                                 <ServiceManager toast={toast} data={serviceData} />
                             </div>
-                        </CardItemGrad>
+                        </CardItemBlack>
                     </div>
-                    <div className="mid-dash-row flex sm:max-xl:flex-col">
-                        <div className="w-1/2 sm:max-xl:w-full">
+                    <div className="mid-dash-row flex xs:max-xl:flex-col">
+                        <div className="w-1/2 xs:max-xl:w-full">
                             <CardItemBlack
                                 width="100%"
                                 height="360px"
@@ -123,7 +117,7 @@ export default function Services(props) {
                                 {<OrdersCard toast={toast} orders={orderData} trackingType="pending" />}
                             </CardItemBlack>
                         </div>
-                        <div className="w-1/2 sm:max-xl:w-full">
+                        <div className="w-1/2 xs:max-xl:w-full">
                             <CardItemBlack
                                 width="100%"
                                 height="360px"
@@ -133,7 +127,7 @@ export default function Services(props) {
                                 {<OrdersCard toast={toast} orders={orderData} trackingType="active" />}
                             </CardItemBlack>
                         </div>
-                        <div className="w-1/2 sm:max-xl:w-full">
+                        <div className="w-1/2 xs:max-xl:w-full">
                             <CardItemBlack
                                 width="100%"
                                 height="360px"

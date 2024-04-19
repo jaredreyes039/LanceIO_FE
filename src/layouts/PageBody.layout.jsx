@@ -13,7 +13,7 @@ export default function PageBodyLayout(props) {
     }
 
     return (
-        <motion.div style={{ padding: props.settings ? '0px' : '3.25%' }} ref={scrollablePage} className="page-body w-full h-dvh overflow-y-scroll overflow-x-hidden" variants={animations} initial="initial" animate="animate" exit="exit" transition='transition' >
+        <motion.div style={{ padding: props.settings ? '0px' : '3.25%' }} ref={scrollablePage} className="bg-black w-full h-dvh overflow-y-scroll overflow-x-hidden" variants={animations} initial="initial" animate="animate" exit="exit" transition='transition' >
             {props.children}
         </motion.div>
     )

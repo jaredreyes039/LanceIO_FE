@@ -2,12 +2,12 @@ import React from "react";
 
 
 export default class ModalContainer extends React.Component {
-    render(){
-        return(
+    render() {
+        return (
             <>
-                <div style={{zIndex: 101}} className="modal-container flex">
+                <div style={{ zIndex: 101 }} className="gig-modal xs:w-full xs:max-lg:flex-col bg-gray-900 flex flex-row  overflow-y-scroll">
                     <div className="close-modal-btn">
-                            <button onClick={()=>{this.props.closeHandler()}}
+                        <button onClick={() => { this.props.closeHandler() }}
                             style={{
                                 color: "#ffffff",
                                 fontSize: "12pt",
@@ -25,9 +25,9 @@ export default class ModalContainer extends React.Component {
                                 alignItems: "center",
                                 zIndex: 100
                             }}
-                            >
+                        >
                             X
-                            </button>
+                        </button>
                     </div>
                     {this.props.children}
                 </div>

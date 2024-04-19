@@ -38,50 +38,52 @@ export default function ServiceManager(props) {
     return (
         <>
             {!isLoading &&
-                <div style={{ width: '100%', height: 'inherit', position: 'relative' }}>
-                    <AddServiceModal toast={toast} />
-                    <EditServiceModal
-                        isOpen={currentModal === 'editServiceModal' ? true : false}
-                        serviceData={editSelection}
-                    />
-                    <div style={{
-                        height: '240px',
-                        overflowX: 'hidden',
-                        overflowY: 'scroll'
-                    }}>
-                        <table className="table w-full">
-                            <thead className="table-head">
-                                <tr>
-                                    <th scope="col" style={{ width: '25%' }}>Gig Title</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Est. Delivery Time</th>
-                                    <th scope="col">Pending Orders</th>
-                                    <th scope="col">Active Orders</th>
-                                    <th scope="col">Fulfilled Orders</th>
-                                </tr>
-                            </thead>
-                            <tbody className="table-body">
-                                {serviceData.map((gig) => {
-                                    return (
-                                        <tr id={gig._id} onClick={(e) => {
-                                            handleEditService(e)
-                                        }}>
-                                            <td>{gig.title}</td>
-                                            <td>{currencyStringToSymbol(gig.currency)}{gig.price.toFixed(2)}{gig.payStruct === 'fixed' ? " Fixed" : "/hr"}</td>
-                                            <td>{gig.estDeliveryTime || ""}</td>
-                                            <td>{gig.orders.pending}</td>
-                                            <td>{gig.orders.active}</td>
-                                            <td>{gig.orders.completed}</td>
-                                        </tr>
-                                    )
-                                })}
-                            </tbody>
-                        </table>
+                <>
+                    <div style={{ width: '100%', height: 'inherit', position: 'relative' }}>
+                        <AddServiceModal toast={toast} />
+                        <EditServiceModal
+                            isOpen={currentModal === 'editServiceModal' ? true : false}
+                            serviceData={editSelection}
+                        />
+                        <div style={{
+                            height: '240px',
+                            overflowX: 'hidden',
+                            overflowY: 'scroll'
+                        }}>
+                            <table className="table w-full">
+                                <thead className="table-head text-center py-8 text-lg">
+                                    <tr>
+                                        <th scope="col" style={{ width: '25%' }}>Gig Title</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Est. Delivery Time</th>
+                                        <th scope="col">Pending Orders</th>
+                                        <th scope="col">Active Orders</th>
+                                        <th scope="col">Fulfilled Orders</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="table-body">
+                                    {serviceData.map((gig) => {
+                                        return (
+                                            <tr id={gig._id} onClick={(e) => {
+                                                handleEditService(e)
+                                            }}>
+                                                <td>{gig.title}</td>
+                                                <td>{currencyStringToSymbol(gig.currency)}{gig.price.toFixed(2)}{gig.payStruct === 'fixed' ? " Fixed" : "/hr"}</td>
+                                                <td>{gig.estDeliveryTime || ""}</td>
+                                                <td>{gig.orders.pending}</td>
+                                                <td>{gig.orders.active}</td>
+                                                <td>{gig.orders.completed}</td>
+                                            </tr>
+                                        )
+                                    })}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <button onClick={() => { setCurrentModal('servicePlanningModal') }} className="card-btn">
                         <span>+</span>
                     </button>
-                </div>
+                </>
             }
             {isLoading &&
                 <div style={{ width: '100%', height: 'inherit', position: 'relative' }}>

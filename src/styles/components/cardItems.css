@@ -65,7 +65,8 @@
     position: absolute;
     bottom: 12px;
     right: 12px;
-    background: radial-gradient(50% 50% at 50% 50%, #F4F2EF15 0%, #00000035 90%, #F4F2EF25 100%), linear-gradient(106deg, #46CD6E 0%, #A5CD46 100%);
+    background: #46cd6e;
+    border: 2px solid #46cd6e;
     border-radius: 50%;
     width: 48px;
     height: 48px;

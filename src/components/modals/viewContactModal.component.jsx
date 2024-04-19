@@ -99,9 +99,8 @@ export default function ViewContactModal(props) {
                 clientId={props.clientId}
             ></AddOrderModal>
 
-            <div ref={viewContactModal} style={{
-                width: '50%'
-            }} className="modal-container modal-hidden">
+            <div ref={viewContactModal}
+                className="hidden gig-modal xs:w-full xs:max-lg:flex-col bg-gray-900 flex flex-row  overflow-y-scroll">
                 <div className="close-modal-btn">
                     <button onClick={() => { handleCloseModal() }}
                         style={{
@@ -125,11 +124,7 @@ export default function ViewContactModal(props) {
                         X
                     </button>
                 </div>
-                <div className="modal-header" style={{
-                    overflowY: 'scroll',
-                    overflowX: 'hidden',
-                    maxHeight: '500px',
-                }}>
+                <div className="xs:max-lg:mb-4 lg:overflow-y-scroll lg:max-h-[500px] xs:max-lg:w-full p-0 gig-modal-header flex flex-col w-1/2 border-r-2 border-white xs:max-lg:border-0">
                     <h1>{props.clientName}</h1>
                     <p className="modal-text mb-4">
                         {props.clientBio}
@@ -194,11 +189,7 @@ export default function ViewContactModal(props) {
                         }
                     </div>
                 </div>
-                <div style={{
-                    overflowX: 'hidden',
-                    overflowY: 'scroll',
-                    padding: '14px'
-                }} className="modal-body">
+                <div className="md:p-4 xs:max-md:w-full w-1/2">
                     <h1 className="modal-text-header underline">Latest Order</h1>
                     {clientOrders.length > 0 &&
                         <>
