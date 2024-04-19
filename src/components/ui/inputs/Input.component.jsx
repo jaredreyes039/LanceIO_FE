@@ -1,4 +1,4 @@
-
+// MOVE TO SEPARATE FILES AND DEF EXPORT SO I CAN ADD TO STORYBOOK
 
 export function TextInput(props) {
 	const { value, placeholder, label, inputName, changeHandler } = props;
