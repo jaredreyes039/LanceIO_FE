@@ -129,40 +129,41 @@ export default function Login(props) {
                         <>
                             <form className="flex flex-col w-full items-center">
                                 <div className="flex flex-col w-full items-center mb-4">
-                                <TextInput
-                                    inputName="registerUser"
-                                    label="Username"
-                                    direction={1}
-                                    placeholder="Username"
-                                    value={registerUsername}
-                                    changeHandler={(e)=>{setRegisterUsername(e.target.value)}}
-                                />
-                                <TextInput
-                                    type="email"
-                                    inputName="registerEmail"
-                                    label="Email Address"
-                                    direction={1}
-                                    placeholder="Email Address"
-                                    value={registerEmail}
-                                    changeHandler={(e)=>{setRegisterEmail(e.target.value)}}
-                                />
-                                <TextInput
-                                    type="password"
-                                    inputName="registerPass"
-                                    label="Password"
-                                    direction={1}
-                                    placeholder="Password"
-                                    value={registerPassword}
-                                    changeHandler={(e)=>{setRegisterPassword(e.target.value)}}
-                                />
-                                <TextInput
-                                    inputName="registerConPass"
-                                    label="Confirm Password"
-                                    direction={1}
-                                    placeholder="Confirm Password"
-                                    value={registerConfirmPassword}
-                                    changeHandler={(e)=>{setRegisterConfirmPassword(e.target.value)}}
-                                />
+                                    <TextInput
+                                        inputName="registerUser"
+                                        label="Username"
+                                        direction={1}
+                                        placeholder="Username"
+                                        value={registerUsername}
+                                        changeHandler={(e) => { setRegisterUsername(e.target.value) }}
+                                    />
+                                    <TextInput
+                                        type="email"
+                                        inputName="registerEmail"
+                                        label="Email Address"
+                                        direction={1}
+                                        placeholder="Email Address"
+                                        value={registerEmail}
+                                        changeHandler={(e) => { setRegisterEmail(e.target.value) }}
+                                    />
+                                    <TextInput
+                                        type="password"
+                                        inputName="registerPass"
+                                        label="Password"
+                                        direction={1}
+                                        placeholder="Password"
+                                        value={registerPassword}
+                                        changeHandler={(e) => { setRegisterPassword(e.target.value) }}
+                                    />
+                                    <TextInput
+                                        type="password"
+                                        inputName="registerConPass"
+                                        label="Confirm Password"
+                                        direction={1}
+                                        placeholder="Confirm Password"
+                                        value={registerConfirmPassword}
+                                        changeHandler={(e) => { setRegisterConfirmPassword(e.target.value) }}
+                                    />
                                 </div>
                                 <button onClick={(e) => { handleRegisterFormSubmit(e) }} className="btn btn-primary">Register</button>
                             </form>
@@ -189,9 +190,9 @@ export default function Login(props) {
                                     changeHandler={handleChangeLoginPass}
                                     label="Password"
                                 />
-                                <button 
-                                onClick={(e) => { handleLoginFormSubmit(e) }} 
-                                className="btn btn-primary">
+                                <button
+                                    onClick={(e) => { handleLoginFormSubmit(e) }}
+                                    className="btn btn-primary">
                                     Login
                                 </button>
                             </form>
