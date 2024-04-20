@@ -57,7 +57,7 @@ export default function AddPaymentForm(props) {
                     <input value={payAmnt} onChange={(e) => { handleChangePayAmount(e) }} required style={{ marginBottom: 0 }} type="number" className="input w-full" step="0.01" max="1000000" placeholder="Gig Price" />
                 </div>
                 <div className="modal-text flex flex-col">
-                    <p className="mb-2">When is the order due for delivery?</p>
+                    <label className="mb-2">When is the order due for delivery?</label>
                     <Datepicker
                         value={new Date(payDate).toLocaleDateString()}
                         onSelectedDateChanged={(date) => { handleChangePayDate(date) }}

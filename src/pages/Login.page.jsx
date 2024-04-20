@@ -3,6 +3,7 @@ import LOGOSVG from '../assets/LanceLogo.svg';
 import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import TextInput from '../components/ui/inputs/Input.component';
 
 export default function Login(props) {
 
@@ -25,6 +26,15 @@ export default function Login(props) {
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
     const [registerConfirmPassword, setRegisterConfirmPassword] = useState("");
+
+
+    const handleChangeLoginEmail = (e) => {
+        setLoginEmail(e.target.value)
+    }
+
+    const handleChangeLoginPass = (e) => {
+        setLoginPassword(e.target.value)
+    }
 
     // Register form should be abstracted
     const handleRegisterFormSubmit = async (e) => {
@@ -118,10 +128,42 @@ export default function Login(props) {
                     {!isLoading ? isRegistering ?
                         <>
                             <form className="flex flex-col w-full items-center">
-                                <input onChange={(e) => { setRegisterUsername(e.target.value) }} value={registerUsername} type="text" className="input" placeholder="Username" />
-                                <input onChange={(e) => { setRegisterEmail(e.target.value) }} value={registerEmail} type="email" className="input" placeholder="Email Address" />
-                                <input onChange={(e) => { setRegisterPassword(e.target.value) }} value={registerPassword} type="password" className="input" placeholder="Password" />
-                                <input onChange={(e) => { setRegisterConfirmPassword(e.target.value) }} value={registerConfirmPassword} type="password" className="input" placeholder="Confirm Password" />
+                                <div className="flex flex-col w-full items-center mb-4">
+                                <TextInput
+                                    inputName="registerUser"
+                                    label="Username"
+                                    direction={1}
+                                    placeholder="Username"
+                                    value={registerUsername}
+                                    changeHandler={(e)=>{setRegisterUsername(e.target.value)}}
+                                />
+                                <TextInput
+                                    type="email"
+                                    inputName="registerEmail"
+                                    label="Email Address"
+                                    direction={1}
+                                    placeholder="Email Address"
+                                    value={registerEmail}
+                                    changeHandler={(e)=>{setRegisterEmail(e.target.value)}}
+                                />
+                                <TextInput
+                                    type="password"
+                                    inputName="registerPass"
+                                    label="Password"
+                                    direction={1}
+                                    placeholder="Password"
+                                    value={registerPassword}
+                                    changeHandler={(e)=>{setRegisterPassword(e.target.value)}}
+                                />
+                                <TextInput
+                                    inputName="registerConPass"
+                                    label="Confirm Password"
+                                    direction={1}
+                                    placeholder="Confirm Password"
+                                    value={registerConfirmPassword}
+                                    changeHandler={(e)=>{setRegisterConfirmPassword(e.target.value)}}
+                                />
+                                </div>
                                 <button onClick={(e) => { handleRegisterFormSubmit(e) }} className="btn btn-primary">Register</button>
                             </form>
                             <p className="text-center text-white">Already have an account? <span className="link" onClick={() => setIsRegistering(false)}>Login</span></p>
@@ -129,9 +171,29 @@ export default function Login(props) {
                         : // CONDITIONAL SEPARATED HERE
                         <>
                             <form className="flex flex-col w-full items-center">
-                                <input onChange={(e) => { setLoginEmail(e.target.value) }} value={loginEmail} type="text" className="input" placeholder="Email Address" />
-                                <input onChange={(e) => { setLoginPassword(e.target.value) }} value={loginPassword} type="password" className="input" placeholder="Password" />
-                                <button onClick={(e) => { handleLoginFormSubmit(e) }} className="btn btn-primary">Login</button>
+                                <TextInput
+                                    inputName="loginEmail"
+                                    type="email"
+                                    direction={1}
+                                    placeholder="Email Address"
+                                    value={loginEmail}
+                                    changeHandler={handleChangeLoginEmail}
+                                    label="Email Address"
+                                />
+                                <TextInput
+                                    inputName="loginPass"
+                                    type="password"
+                                    direction={1}
+                                    placeholder="Password"
+                                    value={loginPassword}
+                                    changeHandler={handleChangeLoginPass}
+                                    label="Password"
+                                />
+                                <button 
+                                onClick={(e) => { handleLoginFormSubmit(e) }} 
+                                className="btn btn-primary">
+                                    Login
+                                </button>
                             </form>
                             <p className="text-center text-white">Don't have an account? <span className="link" onClick={() => setIsRegistering(true)}>Register Here!</span></p>
                         </>
