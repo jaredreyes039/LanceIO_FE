@@ -1,12 +1,11 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { Datepicker } from 'flowbite-react';
 import Cookies from "universal-cookie";
-import { modalContext } from "../../providers/modal.provider";
 import DATE_PICKER_THEME from "../../utils/datePickerTheme";
 import { serviceDataContext } from "../../providers/servicesData.provider";
 import ModalContainer from "../ui/modals/ModalContainer.component";
 import currencyStringToSymbol from "../../utils/currencySymbolConversion.util";
-import { TextAreaInput } from "../ui/inputs/Input.component";
+import TextAreaInput from "../ui/inputs/TextArea.component";
 
 function isEmpty(obj) {
     for (var prop in obj) {
@@ -266,7 +265,7 @@ export default function AddOrderModal(props) {
                             </div>
                             <form className="gig-modal-form flex flex-col" onSubmit={(e) => { handleSubmitOrderForm(e) }}>
                                 <div className="modal-text mb-2">
-                                    <span className="underline">Order Details</span>
+                                    <p className="underline">Order Details</p>
                                 </div>
                                 <div className="modal-text flex flex-col">
                                     <TextAreaInput
@@ -280,14 +279,21 @@ export default function AddOrderModal(props) {
                                     />
                                 </div>
                                 <div className="modal-text flex flex-col">
-                                    <p className="mb-2">Order Requirements</p>
-                                    <textarea name='orderRequirements' value={orderFormData.orderRequirements} onChange={(e) => { handleChangeOrderFormInput(e) }} style={{ height: '72px' }} className="input" type="text" placeholder="Enter any order specifications that will help you fulfill this order." />
+                                <TextAreaInput
+                                        inputName="orderRequirements"
+                                        label="Order Requirements"
+                                        placeholder="Enter any requirements for the order (i.e. Must be 3 pages- blog, landing, about)"
+                                        changeHandler={handleChangeOrderFormInput}
+                                        value={orderFormData.orderRequirements}
+                                        minHeight={72}
+                                        maxHeight={72}
+                                    />
                                 </div>
                                 <div className="modal-text mb-2">
-                                    <span className="underline">Delivery & Payment</span>
+                                    <p className="underline">Delivery & Payment</p>
                                 </div>
                                 <div className="modal-text flex flex-col">
-                                    <p className="mb-2">When is the order due for delivery?</p>
+                                    <label className="mb-2">When is the order due for delivery?</label>
                                     <Datepicker
                                         value={new Date(orderFormData.orderDueDate).toLocaleDateString()}
                                         onSelectedDateChanged={(date) => { handleChangeDeliveryDate(date) }}
@@ -300,7 +306,7 @@ export default function AddOrderModal(props) {
                                         }} className="mb-6" theme={DATE_PICKER_THEME} />
                                 </div>
                                 <div className="modal-text flex flex-col">
-                                    <p className="mb-2">When would you like to recieve payment?</p>
+                                    <label className="mb-2">When would you like to recieve payment?</label>
                                     <Datepicker
                                         onSelectedDateChanged={(date) => { handleChangePaymentDate(date) }}
                                         value={new Date(orderFormData.paymentDueDate).toLocaleDateString()}

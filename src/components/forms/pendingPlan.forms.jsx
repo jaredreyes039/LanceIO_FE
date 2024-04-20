@@ -1,7 +1,7 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { createRef, useContext, useEffect, useRef, useState } from "react";
 import { serviceDataContext } from "../../providers/servicesData.provider";
-import PreviewImageBox from "../ui/cards/PreviewImageBox.component";
 import MoodBoard from "../ui/dashServices/MoodBoard.component";
+import TextInput from "../ui/inputs/Input.component";
 
 export default function PendingPlanForm(props) {
 
@@ -14,8 +14,6 @@ export default function PendingPlanForm(props) {
 
     const [imgFile, setImgFile] = useState(null);
     const [imgUrls, setImgUrls] = useState(selectedOrder.mood_image_urls || []);
-
-    const taskInput = useRef(null);
 
     const handleChangeTask = (e) => {
         setTask(e.target.value);
@@ -37,7 +35,7 @@ export default function PendingPlanForm(props) {
         toast.success("Task added to order: " + task)
         refreshOrderData(props.userId, props.token);
         setTasks([...tasks, data.plannedTasks[data.plannedTasks.length - 1]])
-        taskInput.current.value = "";
+        setTask("")
     }
 
     const handleFileUpload = async (e) => {
@@ -92,18 +90,17 @@ export default function PendingPlanForm(props) {
             </div>
             <div style={{
                 display: 'flex',
-                alignItems: 'center',
                 gap: '12px',
                 marginBottom: '48px'
             }}>
-                <input
-                    onChange={(e) => { handleChangeTask(e) }}
-                    ref={taskInput}
-                    name="tasks"
-                    style={{
-                        marginBottom: '0px',
-                        width: '66%',
-                    }} className="input" placeholder="Add Task" type="text" />
+                <TextInput
+                    value={task}
+                    direction={1}
+                    changeHandler={handleChangeTask}
+                    inputName="tasks"
+                    placeholder="Add planning task"
+                />
+                
                 <button className="card-btn" style={{
                     position: 'relative',
                     borderRadius: '8px',

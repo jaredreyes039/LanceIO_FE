@@ -4,7 +4,10 @@ import Cookies from "universal-cookie";
 import { modalContext } from "../../providers/modal.provider";
 import { serviceDataContext } from "../../providers/servicesData.provider";
 import currencyStringToSymbol from "../../utils/currencySymbolConversion.util";
-import { PriceInput, TextAreaInput, TextInput } from "../ui/inputs/Input.component";
+import TextInput from "../ui/inputs/Input.component";
+import PriceInput from "../ui/inputs/PriceInput.component"
+import TextAreaInput from "../ui/inputs/TextArea.component"
+
 export default function ServiceBasicForm(props) {
 
     // FORM VARS

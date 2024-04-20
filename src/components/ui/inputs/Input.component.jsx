@@ -1,62 +1,32 @@
-// MOVE TO SEPARATE FILES AND DEF EXPORT SO I CAN ADD TO STORYBOOK
+import PropTypes from "prop-types";
 
-export function TextInput(props) {
-	const { value, placeholder, label, inputName, changeHandler } = props;
+export default function TextInput(props) {
+	const { type, direction, value, placeholder, label, inputName, changeHandler } = props;
 	return (
-		<>
-			<label htmlFor={inputName}>{label}</label>
+		<div className="flex" style={{
+			flexDirection: direction ? "column":"row",
+			gap: direction ? '0px':'6px',
+			alignItems: !direction ? "center" : "unset"
+		}}>
+			<label style={{display: label ? "inline-block" : "none"}} htmlFor={inputName}>{label}</label>
 			<input
 				name={inputName}
 				placeholder={placeholder}
 				className="input"
-				type="text"
+				type={type ? type : "text"}
 				required
 				value={value}
 				onChange={(e) => { changeHandler(e) }}
 			/>
-		</>
+		</div>
 	)
 }
 
-export function PriceInput(props) {
-	const { value, placeholder, label, inputName, changeHandler } = props;
-	return (
-		<>
-			<label htmlFor={inputName}>{label}</label>
-			<input
-				className="input"
-				name={inputName}
-				placeholder={placeholder}
-				type="number"
-				step={0.01}
-				max={999999.00}
-				min={0}
-				value={value}
-				onChange={(e) => { changeHandler(e) }}
-				required
-			/>
-		</>
-	)
-}
-
-export function TextAreaInput(props) {
-	const { value, placeholder, label, inputName, minHeight, maxHeight, changeHandler } = props;
-	return (
-		<>
-			<label htmlFor={inputName}>{label}</label>
-			<textarea
-				style={{
-					minHeight: minHeight + 'px',
-					maxHeight: maxHeight + 'px',
-					height: '100%'
-				}}
-				className="input"
-				value={value}
-				placeholder={placeholder}
-				name={inputName}
-				onChange={(e) => { changeHandler(e) }}
-				required
-			/>
-		</>
-	)
+TextInput.propTypes = {
+	direction: PropTypes.bool,
+	value: PropTypes.string,
+	placeholder: PropTypes.string,
+	label: PropTypes.string,
+	inputName: PropTypes.string,
+	changeHandler: PropTypes.func
 }

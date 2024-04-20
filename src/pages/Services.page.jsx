@@ -1,7 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import ToolBar from "../layouts/Toolbar.component";
 import CardItemBlack from "../components/ui/cards/CardItemBlack.component";
-import CardItemGrad from "../components/ui/cards/CardItemGreen.component";
 import PageBodyLayout from "../layouts/PageBody.layout";
 import Cookies from "universal-cookie";
 import ClientsCard from "../components/ui/dashServices/ClientsCard.component";
