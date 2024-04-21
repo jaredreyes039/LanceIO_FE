@@ -247,7 +247,7 @@ export default function ViewOrderModal(props) {
                             <div className="modal-text flex gap-2">
                                 <span>Order #</span>
                                 <p>
-                                    {currentOrderData.order_num ? currentOrderData.order_num : currentOrderData._id}
+                                    {currentOrderData.order_num ? currentOrderData.order_num : "ERR: Failed to retrieve order #"}
                                 </p>
                             </div>
                             <div className="modal-text flex gap-2 mb-4">

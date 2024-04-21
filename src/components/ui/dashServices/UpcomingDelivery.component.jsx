@@ -90,64 +90,6 @@ export default function UpcomingDelivery(props) {
                                 </li>
                             )
                         })}
-                        {upcomingDels.map((order) => {
-                            return (
-                                <li className="order-list-item w-full"
-                                    onClick={(e) => { openViewOrderModal(e) }}
-                                    id={order._id}
-                                    key={order._id}
-                                >
-                                    <div className="order-list-item-header">
-                                        <h1>{order.serviceTitle}</h1>
-                                        <p className="modal-text">Order #{order.order_num}</p>
-                                    </div>
-                                    <div className="order-list-item-body flex justify-around w-full">
-                                        <div>
-                                            <span>Client: </span>
-                                            <p>{order.clientName}</p>
-                                        </div>
-                                        <div>
-                                            <span>Delivery Date</span>
-                                            <p className="text-primaryWhite">{new Date(order.deliveryDate).toLocaleDateString()}</p>
-                                        </div>
-                                        <div>
-                                            <span>Expected Income: </span>
-                                            <p>{currencyStringToSymbol(order.payment.currency)}{order.payment.amountOwed.toFixed(2)}</p>
-                                        </div>
-                                    </div>
-                                </li>
-                            )
-                        })}
-                        {upcomingDels.map((order) => {
-                            return (
-                                <li className="order-list-item w-full"
-                                    onClick={(e) => { openViewOrderModal(e) }}
-                                    id={order._id}
-                                    key={order._id}
-                                >
-                                    <div className="order-list-item-header">
-                                        <h1>{order.serviceTitle}</h1>
-                                        <p className="modal-text">Order #{order.order_num}</p>
-                                    </div>
-                                    <div className="order-list-item-body flex justify-around w-full">
-                                        <div>
-                                            <span>Client: </span>
-                                            <p>{order.clientName}</p>
-                                        </div>
-                                        <div>
-                                            <span>Delivery Date</span>
-                                            <p className="text-primaryWhite">{new Date(order.deliveryDate).toLocaleDateString()}</p>
-                                        </div>
-                                        <div>
-                                            <span>Expected Income: </span>
-                                            <p>{currencyStringToSymbol(order.payment.currency)}{order.payment.amountOwed.toFixed(2)}</p>
-                                        </div>
-                                    </div>
-                                </li>
-                            )
-                        })}
-
-
                     </ul>
                 }
             </>
