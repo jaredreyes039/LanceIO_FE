@@ -100,7 +100,7 @@ export default function PendingPlanForm(props) {
                     inputName="tasks"
                     placeholder="Add planning task"
                 />
-                
+
                 <button className="card-btn" style={{
                     position: 'relative',
                     borderRadius: '8px',

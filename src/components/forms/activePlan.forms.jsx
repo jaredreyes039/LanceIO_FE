@@ -325,9 +325,9 @@ export function TimeTable(props) {
                                 amountEarned = "FIXED"
                             }
                             return (
-                                <tr key={task.task_id + idx} class="task-row bg-white dark:bg-gray-800">
+                                <tr key={task.task_id + idx} class="hover:bg-white hover:bg-opacity-10 text-center duration-150 transition-all ease-in-out bg-white dark:bg-gray-800">
                                     <th
-                                        scope="row" class="px-6 py-4 text-gray-400 whitespace-nowrap ">
+                                        scope="row" class="max-w-[120px] truncate px-6 py-4 text-gray-400 whitespace-nowrap ">
                                         {task.task}
                                     </th>
                                     <td class="px-6 py-4">

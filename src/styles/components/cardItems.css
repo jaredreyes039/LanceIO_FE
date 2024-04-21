@@ -6,15 +6,7 @@
     overflow: hidden;
 }
 
-@media (max-width: 450px){
-    .card-item-placeholder-header > h1{
-        font-size: 20px !important;
-    }
-    .card-item-placeholder-header > p{
-        font-size: 14px !important;
-    }
 
-}
 
 .card-item-placeholder-header > h1 {
     color: #F4F2EF;
@@ -39,31 +31,6 @@
 
 .card-item-black-header > h3 {
     color: #F4F2EF;
-    font-family: Poppins;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-.card-item-grad {
-    border-radius: 4px;
-    background: var(--GreenGrad1, linear-gradient(106deg, #46CD6E 0%, #A5CD46 100%));
-    padding: 12px;
-}
-
-.card-item-grad-header {
-    display: flex;
-    gap: 24px;
-    align-items: center;
-}
-
-.card-item-grad-header > img {
-    width: 48px;
-    height: 48px;
-}
-
-.card-item-grad-header > h3 {
-    color: #1b1b1b;
     font-family: Poppins;
     font-size: 32px;
     font-style: normal;
@@ -105,6 +72,7 @@
     scale: 1.1;
 }
 
+/* Services Scrollable List Container */
 
 .gig-planner-item {
     background-color: #1b1b1b;
@@ -181,6 +149,8 @@
     scale: 1.01;
     cursor: pointer;
 }
+
+/* Client Scrollable List Container */
 
 .client-card-container {
     padding: 12px;
@@ -275,6 +245,8 @@
     padding: 0px 12px;
 }
 
+/* Orders Scrollable List Display Container */
+
 .order-container-scroll {
     height: inherit;
     overflow-y: scroll;
@@ -282,8 +254,6 @@
     padding: 0px 12px;
 }
 
-.order-list {
-}
 
 .order-list-item {
     padding: 12px 0px;
@@ -356,4 +326,62 @@
 .card-container-small > p {
     font-size: 24px;
     color: #46CD6E;
+}
+
+/* Income Flow Carousel Unique Classes */
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: inherit;
+}
+
+.slide {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: inherit;
+    opacity: 0;
+}
+
+.slide > div > hr {
+    border: 10px solid #46CD6E;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.slide > div > h2 {
+    font-size: 18px;
+    color: #fefefe;
+    margin-bottom: 12px;
+}
+
+.slide > div > h2 > span {
+    color: #46cd6e;
+}
+
+.active-slide {
+    animation: slideFromRight 150ms ease-in-out forwards;
+}
+
+@keyframes slideFromRight {
+    0%{
+        opacity: 0.01;
+        left: 120px;
+    }
+    100% {
+        opacity: 1;
+        left: 0px;
+    }
+}
+
+@media (max-width: 450px){
+    .card-item-placeholder-header > h1{
+        font-size: 20px !important;
+    }
+    .card-item-placeholder-header > p{
+        font-size: 14px !important;
+    }
+
 }

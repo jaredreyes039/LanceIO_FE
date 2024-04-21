@@ -26,7 +26,7 @@ export default function User(props) {
 
     return (
         <>
-            <div className="dashboard-page">
+            <div className="flex">
                 <ToolBar />
                 <PageBodyLayout settings>
                     {/*<div className="flex flex-col">

@@ -130,9 +130,9 @@ export default function IncomeFlowCard(props) {
 				return (
 					<div key={"s-" + idx} id={"s-" + (idx + 1)} className="slide slide-active">
 						<div className="flex flex-col">
-							<div className="flex flex-row flow-header">
-								<h1>{currencyStringToSymbol(curr)}</h1>
-								<h1><span>{Number(totalActualIncome) ? <CountUp decimals={2} end={totalActualIncome}></CountUp> : (0).toFixed(2)}</span></h1>
+							<div className="flex flex-row">
+								<h1 className="text-[48px] text-white">{currencyStringToSymbol(curr)}</h1>
+								<h1 className="text-[48px] text-white" ><span>{Number(totalActualIncome) ? <CountUp decimals={2} end={totalActualIncome}></CountUp> : (0).toFixed(2)}</span></h1>
 							</div>
 							<hr></hr>
 							<h2>

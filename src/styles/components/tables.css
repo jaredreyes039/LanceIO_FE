@@ -13,3 +13,76 @@
 .task-row:hover {
     background-color: #fefefe10;
 }
+
+.table {
+    position: relative;
+    table-layout: fixed;
+}
+
+.table-head {
+    background-color: transparent;
+    color: #46cd6e;
+    width: 100%;
+}
+
+.table-head > tr {
+    height: 50px;
+}
+
+.table-head > tr > th {
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    background-color: #1B1B1B50;
+}
+
+.table-body > tr {
+    background-color: transparent;
+    color: white;
+    height: 64px;
+    border-bottom: 2px solid #fefefe;
+    border-top: 2px solid #fefefe;
+    transition: all 100ms ease-in-out;
+}
+.table-body-alt > tr {
+    background-color: transparent;
+    height: 64px;
+    border-bottom: 2px solid #fefefe;
+    border-top: 2px solid #fefefe;
+    transition: all 100ms ease-in-out;
+    color: #46CD6E;
+}
+.table-body-alt > tr > th {
+    font-weight: 500;
+}
+.table-body-alt > tr > td:nth-of-type(1){
+    color: #fefefe;
+    font-weight: 550;
+    
+}
+
+.table-body > tr:hover {
+    cursor: pointer;
+    background-color: #1B1B1B50;
+}
+.table-body > tr > td {
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+.all-gigs-table-container {
+    height: 270px;
+    width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.table-action {
+    transition: all 100ms ease-in-out;
+}
+
+.table-action:hover {
+    cursor: pointer;
+    color: #F4DBDB;
+}

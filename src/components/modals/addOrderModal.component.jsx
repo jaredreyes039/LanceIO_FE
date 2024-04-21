@@ -6,6 +6,7 @@ import { serviceDataContext } from "../../providers/servicesData.provider";
 import ModalContainer from "../ui/modals/ModalContainer.component";
 import currencyStringToSymbol from "../../utils/currencySymbolConversion.util";
 import TextAreaInput from "../ui/inputs/TextArea.component";
+import "../../styles/components/inputs.css";
 
 function isEmpty(obj) {
     for (var prop in obj) {
@@ -279,7 +280,7 @@ export default function AddOrderModal(props) {
                                     />
                                 </div>
                                 <div className="modal-text flex flex-col">
-                                <TextAreaInput
+                                    <TextAreaInput
                                         inputName="orderRequirements"
                                         label="Order Requirements"
                                         placeholder="Enter any requirements for the order (i.e. Must be 3 pages- blog, landing, about)"

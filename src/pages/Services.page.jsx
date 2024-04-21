@@ -58,7 +58,7 @@ export default function Services(props) {
             </div>
 
             {/* Main Page */}
-            <div className="gig-page">
+            <div className="flex">
                 <ToolBar />
                 <PageBodyLayout togglePageScroll={scrollEnabled}>
                     <div className="flex xs:max-xl:flex-col w-full gap-4 mb-4">
@@ -92,7 +92,7 @@ export default function Services(props) {
                         </div>
                     </div>
                     {/* Service Manager */}
-                    <div className="mid-dash-row flex">
+                    <div className="mb-3 gap-3 flex">
                         <CardItemBlack
                             width="100%"
                             height="360px"
@@ -104,7 +104,7 @@ export default function Services(props) {
                             </div>
                         </CardItemBlack>
                     </div>
-                    <div className="mid-dash-row flex xs:max-xl:flex-col">
+                    <div className="gap-3 mb-3 flex xs:max-xl:flex-col">
                         <div className="w-1/2 xs:max-xl:w-full">
                             <CardItemBlack
                                 width="100%"

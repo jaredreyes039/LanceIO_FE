@@ -49,10 +49,10 @@ export default function Home(props) {
                         <div className="backdrop" ref={backdrop}>
                         </div>
 
-                        <div className="dashboard-page">
+                        <div className="flex">
                                 <ToolBar />
                                 <PageBodyLayout>
-                                        <div className="top-dash-row xs:max-xl:flex-col flex justify-evenly flex-1">
+                                        <div className="xs:max-xl:flex-col flex justify-evenly flex-1 mb-3 gap-3">
                                                 <div className="xs:max-xl:w-full w-1/3">
                                                         <CardItemBlack
                                                                 width="100%"
@@ -84,7 +84,7 @@ export default function Home(props) {
                                                         </CardItemBlack>
                                                 </div>
                                         </div>
-                                        <div className="mid-dash-row flex xs:max-xl:flex-col justify-evenly flex-1">
+                                        <div className="mb-3 gap-3 flex xs:max-xl:flex-col justify-evenly flex-1">
                                                 <div className="xs:max-xl:w-full w-2/3">
                                                         <CardItemBlack
                                                                 width="100%"

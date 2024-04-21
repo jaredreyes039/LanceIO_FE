@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function PriceInput(props) {
 	const { value, placeholder, label, inputName, changeHandler } = props;
 	return (
@@ -17,4 +19,12 @@ export default function PriceInput(props) {
 			/>
 		</>
 	)
+}
+
+PriceInput.propTypes = {
+	value: PropTypes.number,
+	placeholder: PropTypes.string,
+	label: PropTypes.string,
+	inputName: PropTypes.string,
+	changeHandler: PropTypes.func
 }

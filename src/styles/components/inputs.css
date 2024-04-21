@@ -1,0 +1,71 @@
+
+.input {
+    background-color: #1E1E1E !important;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #46CD6E;
+    width: 244px;
+    height: 50px;
+    flex-shrink: 0;
+    color: #F4DBDB;
+}
+.input::placeholder {
+    opacity: 0.75;
+}
+.input:focus {
+    outline: none;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #F4DBDB;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.file-input {
+    background: var(--GreenGrad1, linear-gradient(106deg, #46CD6E 0%, #A5CD46 100%));
+    padding: 12px 12px;
+    margin-bottom: 24px;
+    color: #1b1b1b;
+    font-weight: 1000;
+    width: 100%;
+    border-radius: 8px;
+    background-color: #46CD6E;
+    transition: all 100ms ease-in-out;
+}
+.file-input > img {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+}
+.file-input:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+
+.select-input {
+    background-color: #1E1E1E !important;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #46CD6E;
+    width: 244px;
+    height: 50px;
+    color: #F4DBDB;
+    padding-left: 12px;
+}
+.select-input:invalid {
+    color: #F4DBDB95;
+}
+
+.select-input:focus {
+    outline: none;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #F4DBDB;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
