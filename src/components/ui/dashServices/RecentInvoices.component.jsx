@@ -94,7 +94,7 @@ export default function RecentInvoices(props) {
 									<h1>{invoice.title}</h1>
 									<p className="modal-text">Order #{invoice.order_num}</p>
 								</div>
-								<a href={process.env.REACT_APP_API_URL_INVOICES + '/' + invoice.url} download>
+								<a href={process.env.REACT_APP_API_URL_INVOICES_GET + '/' + invoice.url} download>
 
 									<div className="order-list-item-body flex justify-around w
 							-full">
