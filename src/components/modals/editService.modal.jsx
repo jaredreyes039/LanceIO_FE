@@ -72,14 +72,9 @@ export default function EditServiceModal(props) {
                             X
                         </button>
                     </div>
-                    <div className="xs:max-lg:w-full p-0 gig-modal-header flex flex-col w-1/2  border-white xs:max-lg:border-0">
+                    <div className="lg:border-r-2 lg:border-white xs:max-lg:w-full p-0 gig-modal-header flex flex-col w-1/2  border-white xs:max-lg:border-0">
                         <h1>Edit Service</h1>
                         <h2 className="modal-text-header xs:max-lg:hidden">{serviceData.title}</h2>
-                        <p className="modal-text xs:max-lg:hidden">{serviceData.description}</p>
-                        <div className="mt-4 xs:max-lg:hidden">
-                            <b><span>Cost:</span></b><p className="modal-text">{currencyStringToSymbol(serviceData.currency)}{serviceData.price}{serviceData.payStruct === "fixed" ? " Fixed" : "/hr"}</p>
-                            <b><span>Est. Delivery Time: </span></b><p className="modal-text">{serviceData.estDeliveryTime || "N/A"}</p>
-                        </div>
                     </div>
                     <div className="gig-modal-body pl-12 w-1/2 xs:max-lg:w-full flex flex-col xs:max-lg:pl-0">
                         <ServiceBasicForm edit={true} serviceEdit={serviceData} tableRefresh={tableRefresh} refresh={refresh} />

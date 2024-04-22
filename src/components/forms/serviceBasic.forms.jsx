@@ -202,7 +202,7 @@ export default function ServiceBasicForm(props) {
                 <form onSubmit={(e) => { handleSumbitBasic(e) }} ref={basicPlanningForm} className="gig-modal-form flex flex-col">
                     <TextInput direction label="Service Name" inputName="serviceName" value={gigName} changeHandler={handleGigName} placeholder={"Enter Service Name..."} />
                     <TextAreaInput value={gigDescription} changeHandler={handleGigDescription} placeholder="Enter Service Description..." inputName="serviceDescription" label="Service Description" minHeight={100} maxHeight={120} />
-                    <PriceInput value={gigPrice} changeHandler={handleGigPrice} inputName="servicePrice" placeholder="Enter Service Price..." label="Service price" />
+                    <PriceInput direction value={gigPrice} changeHandler={handleGigPrice} inputName="servicePrice" placeholder="Enter Service Price..." label="Service price" />
                     <div className="mb-2 flex flex-row xs:max-lg:flex-col items-center justify-center gap-4">
                         <select value={gigCurrency} onChange={(e) => { handleGigCurrency(e) }} required className="select-input">
                             <option default value="">Select Currency</option>

@@ -1,3 +1,10 @@
+.close-modal-btn {
+    z-index: 100;
+    transition: all 150ms ease-in-out;
+}
+.close-modal-btn:hover{
+    cursor: pointer;
+}
 
 .gig-modal {
     display: flex;

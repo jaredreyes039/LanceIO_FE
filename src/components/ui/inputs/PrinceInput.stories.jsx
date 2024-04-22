@@ -17,7 +17,7 @@ const Template = () => {
 		<PriceInput
 			value={locVal}
 			placeholder="Template"
-			label="Template Label"
+			label="Price Input Label"
 			inputName="templateInput"
 			direction={true}
 			type="text"
