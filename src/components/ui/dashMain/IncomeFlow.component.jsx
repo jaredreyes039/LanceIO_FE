@@ -1,28 +1,9 @@
 import { isNull } from "lodash";
 import { useContext, useEffect, useRef, useState } from "react"
 import CountUp from "react-countup";
+import { useInterval } from "../../../hooks/interval.hook";
 import { serviceDataContext } from "../../../providers/servicesData.provider";
 import currencyStringToSymbol from "../../../utils/currencySymbolConversion.util";
-
-function useInterval(callback, delay) {
-	const savedCallback = useRef();
-
-	// Remember the latest callback.
-	useEffect(() => {
-		savedCallback.current = callback;
-	}, [callback]);
-
-	// Set up the interval.
-	useEffect(() => {
-		function tick() {
-			savedCallback.current();
-		}
-		if (delay !== null) {
-			let id = setInterval(tick, delay);
-			return () => clearInterval(id);
-		}
-	}, [delay]);
-}
 
 function constructIncomeData(orderData, currency) {
 	const allPaymentsArr = [];

@@ -66,7 +66,7 @@ export default function Home(props) {
                                                 <div className="xs:max-xl:w-full w-1/3">
                                                         <CardItemBlack
                                                                 width="100%"
-                                                                height="360px"
+                                                                height="fit"
                                                                 icon="./icons/GigsIcon.svg"
                                                                 title="Income Summary"
                                                         >
@@ -87,8 +87,9 @@ export default function Home(props) {
                                         <div className="mb-3 gap-3 flex xs:max-xl:flex-col justify-evenly flex-1">
                                                 <div className="xs:max-xl:w-full w-2/3">
                                                         <CardItemBlack
+                                                                linePlot
                                                                 width="100%"
-                                                                height="540px"
+                                                                height="100%"
                                                                 icon="./icons/IncomeIcon.svg"
                                                                 title="Your Outlook"
                                                         >
