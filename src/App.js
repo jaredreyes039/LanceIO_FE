@@ -16,26 +16,26 @@ import "react-toastify/dist/ReactToastify.css";
 import "./styles/components/inputs.css";
 
 function App() {
-  const location = useLocation();
-  return (
-    <>
-      <ServiceDataProvider>
-        <FormSliderProvider>
-          <ModalProvider>
-            <AnimatePresence mode="wait">
-              <Routes key={location.pathname} location={location}>
-                <Route path="/" element={<Login />} />
-                <Route path="/dashboard" element={<Home />} />
-                <Route path="/invoices" element={<Invoices />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/user" element={<User />} />
-              </Routes>
-            </AnimatePresence>
-          </ModalProvider>
-        </FormSliderProvider>
-      </ServiceDataProvider>
-    </>
-  );
+	const location = useLocation();
+	return (
+		<>
+			<ServiceDataProvider>
+				<FormSliderProvider>
+					<ModalProvider>
+						<AnimatePresence mode="wait">
+							<Routes key={location.pathname} location={location}>
+								<Route path="/" element={<Login />} />
+								<Route path="/dashboard" element={<Home />} />
+								<Route path="/invoices" element={<Invoices />} />
+								<Route path="/services" element={<Services />} />
+								<Route path="/user" element={<User />} />
+							</Routes>
+						</AnimatePresence>
+					</ModalProvider>
+				</FormSliderProvider>
+			</ServiceDataProvider>
+		</>
+	);
 }
 
 export default App;

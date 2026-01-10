@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
 
 export default function TextInput(props) {
-	const { type, direction, value, placeholder, label, inputName, changeHandler } = props;
+	const { type, direction, value, placeholder, label, inputName, changeHandler, required } = props;
+
+	// TODO: ADDRESS DIRECTIONAL PROP TYPE IN EXCHANGE FOR CLASS STYLE OPTS
 	return (
 		<div className="flex" style={{
 			flexDirection: direction ? "column" : "row",
@@ -12,9 +14,9 @@ export default function TextInput(props) {
 			<input
 				name={inputName}
 				placeholder={placeholder}
-				className="input"
+				className={type === "checkbox" ? "input-check" : "input"}
 				type={type ? type : "text"}
-				required
+				required={required ? true : false}
 				value={value}
 				onChange={(e) => { changeHandler(e) }}
 			/>
@@ -22,6 +24,7 @@ export default function TextInput(props) {
 	)
 }
 
+// WARNING: PROPTYPE 'direction' WILL BE REJECTED UNTIL REPAIRED TO MATCH PROVIDED TYPE
 TextInput.propTypes = {
 	type: PropTypes.string,
 	direction: PropTypes.bool,
@@ -29,5 +32,6 @@ TextInput.propTypes = {
 	placeholder: PropTypes.string,
 	label: PropTypes.string,
 	inputName: PropTypes.string,
-	changeHandler: PropTypes.func
+	changeHandler: PropTypes.func,
+	required: PropTypes.bool
 }
