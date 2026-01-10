@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import TextInput from '../ui/inputs/Input.component.jsx'
 import { ToastContainer, toast } from 'react-toastify';
-import { validateFormData } from "../../utils/formSantizer.util"
+import { validateFormData } from "../../utils/validateFormData.util"
 
 export default function RegistrationForm() {
 
