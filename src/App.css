@@ -1,6 +1,9 @@
 .page-body {
-    background: #3C3C3C;
-    padding: 3.25%;
+	background: #3C3C3C;
+	padding: 3.25%;
 }
 
-
+.form-error {
+	color: red;
+	font-size: 0.85rem;
+}
