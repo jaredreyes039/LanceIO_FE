@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useFormContext } from "react-hook-form"
 
 export default function TextInput(props) {
-	const { type, direction, value, placeholder, label, inputName } = props;
+	const { type, direction, value, placeholder, label, inputName, options } = props;
 	const { register } = useFormContext();
 
 	// TODO: ADDRESS DIRECTIONAL PROP TYPE IN EXCHANGE FOR CLASS STYLE OPTS
@@ -19,7 +19,7 @@ export default function TextInput(props) {
 				className={type === "checkbox" ? "input-check" : "input"}
 				type={type ? type : "text"}
 				value={value}
-				{...register(inputName)}
+				{...register(inputName, options)}
 			/>
 		</div>
 	)

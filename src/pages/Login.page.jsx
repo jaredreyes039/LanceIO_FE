@@ -120,31 +120,6 @@ export default function Login(props) {
 						<RegistrationForm />
 						: // CONDITIONAL SEPARATED HERE
 						<>
-							<form className="flex flex-col w-full items-center">
-								<TextInput
-									inputName="loginEmail"
-									type="email"
-									direction={1}
-									placeholder="Email Address"
-									value={loginEmail}
-									changeHandler={handleChangeLoginEmail}
-									label="Email Address"
-								/>
-								<TextInput
-									inputName="loginPass"
-									type="password"
-									direction={1}
-									placeholder="Password"
-									value={loginPassword}
-									changeHandler={handleChangeLoginPass}
-									label="Password"
-								/>
-								<button
-									onClick={(e) => { handleLoginFormSubmit(e) }}
-									className="btn btn-primary">
-									Login
-								</button>
-							</form>
 							<p className="text-center text-white">Don't have an account? <span className="link" onClick={() => setIsRegistering(true)}>Register Here!</span></p>
 						</>
 						:
