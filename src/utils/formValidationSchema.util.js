@@ -6,8 +6,17 @@ export const registerSchema = Yup.object().shape({
 	password: Yup.string().min(6, 'Password must be at least 6 characters long').matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
 		.matches(/[a-z]/, 'Password must contain at least one lowercase letter')
 		.matches(/\d/, 'Password must contain at least one number')
-		.matches(/[!@#$%^&*]/, 'Password must contain at least one special character')
+		.matches(/[!@#$%^&*:]/, 'Password must contain at least one special character')
 		.required('Password is required'),
 	confirmPassword: Yup.string().oneOf([Yup.ref("password")], "Passwords must match.")
 }).required()
 
+
+export const loginSchema = Yup.object().shape({
+	username: Yup.string().min(6, "Incorrect username or password. Please try again."),
+	password: Yup.string().min(6, 'Incorrect username or password. Please try again.').matches(/[A-Z]/, 'Incorrect username or password. Please try again.')
+		.matches(/[a-z]/, 'Incorrect username or password. Please try again.')
+		.matches(/\d/, 'Incorrect username or password. Please try again.')
+		.matches(/[!@#$%^&*:]/, 'Incorrect username or password. Please try again.')
+		.required('Incorrect username or password. Please try again.'),
+}).required()
