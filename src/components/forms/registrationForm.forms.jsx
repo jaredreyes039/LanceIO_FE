@@ -20,6 +20,7 @@ export default function RegistrationForm() {
 	const methods = { register, reset }
 
 	function onSubmit(data) {
+		// TODO: SET EMAIL TO LOWERCASE BEFORE SHIPPING TO SEVER
 		// TODO: INTERFACE WITH USERS SERVER
 		console.log(data);
 	}

@@ -4,6 +4,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useForm, SubmitHandler, FormProvider } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "../../utils/formValidationSchema.util.js";
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function LoginForm() {
 
@@ -15,11 +17,24 @@ export default function LoginForm() {
 		formState: { errors }
 	} = useForm({ resolver: yupResolver(loginSchema) });
 
-	const methods = { register, reset };
 
-	function onSubmit(data) {
-		// TODO: HOOK INTO AUTH SERVICE
-		console.log(data)
+	const methods = { register, reset };
+	const navigate = useNavigate();
+
+	function onSubmit(formData) {
+		axios({
+			method: 'POST',
+			url: 'http://localhost:5000/auth/login',
+			data: formData
+		})
+			.then((res) => {
+				if (res.status === 503) {
+				}
+				else {
+					navigate("/dashboard")
+				}
+			})
+			.catch((err) => console.log(err))
 	}
 
 	useEffect(() => {
