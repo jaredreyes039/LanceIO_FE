@@ -9,7 +9,6 @@ import LoadingSpinner from '../components/ui/loadingSpinner.component';
 
 export default function Login(props) {
 
-	// TODO: IMPLEMENT LOGIN FORM
 	// TODO: WRITE TESTS
 
 	const AUTH_URL = process.env.REACT_APP_API_URL_AUTH
